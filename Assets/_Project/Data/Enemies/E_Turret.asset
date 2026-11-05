@@ -16,6 +16,7 @@ MonoBehaviour:
   maxHp: 10
   hitRadius: 0.55
   contactDamage: 1
+  powerUpDropChance: 0.1
   patterns:
   - {fileID: 11400000, guid: 329715a3a20cb5f4187ef81ed3a1d2bf, type: 2}
   fireInterval: 1.8

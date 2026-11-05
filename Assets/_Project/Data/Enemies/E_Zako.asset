@@ -16,6 +16,7 @@ MonoBehaviour:
   maxHp: 2
   hitRadius: 0.5
   contactDamage: 1
+  powerUpDropChance: 0.03
   patterns: []
   fireInterval: 1.5
   firstShotDelay: 0.8

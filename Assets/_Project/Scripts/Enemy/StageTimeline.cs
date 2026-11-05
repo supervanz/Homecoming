@@ -14,6 +14,8 @@ namespace Homecoming.Enemy
         public Vector2 spawnPosition;
         [Tooltip("켜면 경로와 오프셋을 좌우 반전")]
         public bool mirror;
+        [Tooltip("켜면 편대의 마지막 기체가 격파 시 반드시 파워업을 떨어뜨린다")]
+        public bool guaranteedDrop;
     }
 
     /// <summary>스테이지 전체 웨이브 구성. 시간·적 종류·편대를 코드 수정 없이 바꾼다.</summary>

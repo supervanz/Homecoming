@@ -12,7 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d609e1dcf18f5b84cac8cd8683230b29, type: 3}
   m_Name: WeaponConfig
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Weapon.WeaponConfig
-  fireInterval: 0.1
-  bulletSpeed: 28
-  bulletCount: 1
-  spreadAngle: 0
+  levels:
+  - fireInterval: 0.1
+    bulletSpeed: 28
+    bulletCount: 1
+    spreadAngle: 0
+  - fireInterval: 0.1
+    bulletSpeed: 28
+    bulletCount: 3
+    spreadAngle: 12
+  - fireInterval: 0.1
+    bulletSpeed: 30
+    bulletCount: 5
+    spreadAngle: 24

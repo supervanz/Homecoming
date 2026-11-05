@@ -16,6 +16,7 @@ MonoBehaviour:
   maxHp: 70
   hitRadius: 1.4
   contactDamage: 1
+  powerUpDropChance: 1
   patterns:
   - {fileID: 11400000, guid: c85427392b35a994b8e2d09511e6f8a5, type: 2}
   - {fileID: 11400000, guid: 720d9a285e6440e4a97192b749129beb, type: 2}

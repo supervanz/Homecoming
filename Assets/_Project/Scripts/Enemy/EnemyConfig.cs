@@ -16,6 +16,10 @@ namespace Homecoming.Enemy
         [Tooltip("플레이어와 몸통이 부딪혔을 때 주는 피해")]
         public int contactDamage = 1;
 
+        [Header("Drop")]
+        [Tooltip("격파 시 파워업을 떨어뜨릴 확률")]
+        [Range(0f, 1f)] public float powerUpDropChance = 0f;
+
         [Header("Firing")]
         [Tooltip("순서대로 반복할 탄 패턴. 비우면 쏘지 않는다.")]
         public BulletPatternConfig[] patterns = new BulletPatternConfig[0];

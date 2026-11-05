@@ -16,8 +16,15 @@ namespace Homecoming.Player
         private Renderer[] _renderers;
 
         public bool IsInvincible => _invincibleTimer > 0f;
-        public bool CanBeHit => isActiveAndEnabled && !health.IsDead && !IsInvincible;
+        public bool IsAlive => isActiveAndEnabled && !health.IsDead;
+        public bool CanBeHit => IsAlive && !IsInvincible;
         public Health Health => health;
+
+        /// <summary>외부(폭탄 등)에서 무적 시간을 준다. 남은 시간보다 길 때만 늘린다.</summary>
+        public void GrantInvincibility(float seconds)
+        {
+            _invincibleTimer = Mathf.Max(_invincibleTimer, seconds);
+        }
 
         private void Awake()
         {

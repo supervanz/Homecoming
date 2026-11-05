@@ -34,5 +34,12 @@ namespace Homecoming.Weapon
         public Bullet Get() => _pool.Get();
 
         public void Release(Bullet bullet) => _pool.Release(bullet);
+
+        /// <summary>화면의 탄을 모두 회수한다 (폭탄).</summary>
+        public void ReleaseAll()
+        {
+            for (int i = _active.Count - 1; i >= 0; i--)
+                _active[i].Despawn();
+        }
     }
 }

@@ -45,7 +45,8 @@ namespace Homecoming.Enemy
                 Vector2 offset = f.memberOffsets[i];
                 Vector3 origin = center + new Vector3(entry.spawnPosition.x + sign * offset.x, 0f, entry.spawnPosition.y + offset.y);
                 EnemyUnit enemy = pool.Get(entry.enemy.prefab);
-                enemy.Spawn(entry.enemy, f.path, origin, entry.mirror, context, pool);
+                bool carriesDrop = entry.guaranteedDrop && i == f.memberOffsets.Length - 1;
+                enemy.Spawn(entry.enemy, f.path, origin, entry.mirror, carriesDrop, context, pool);
             }
         }
     }

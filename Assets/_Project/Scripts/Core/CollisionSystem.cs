@@ -16,11 +16,28 @@ namespace Homecoming.Core
         [SerializeField] private BulletPool enemyBullets;
         [SerializeField] private PlayerDamageReceiver player;
         [SerializeField] private CircleHitbox playerHitbox;
+        [SerializeField] private PowerUpPool powerUps;
+        [SerializeField] private PlayerWeapon playerWeapon;
 
         private void Update()
         {
             CheckPlayerBullets();
+            CheckPowerUps();
             CheckPlayer();
+        }
+
+        // 무적 중에도 아이템은 먹을 수 있다.
+        private void CheckPowerUps()
+        {
+            if (!player.IsAlive) return;
+            var items = powerUps.Active;
+            for (int i = items.Count - 1; i >= 0; i--)
+            {
+                PowerUpItem item = items[i];
+                if (!playerHitbox.Overlaps(item.Position, item.Radius)) continue;
+                playerWeapon.LevelUp();
+                item.Despawn();
+            }
         }
 
         private void CheckPlayerBullets()

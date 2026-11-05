@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="Homecoming.uss" />
+    <ui:VisualElement name="result" class="overlay">
+        <ui:Label name="result-title" class="result-title" text="GAME OVER" />
+        <ui:Label name="result-score" class="result-line" text="SCORE  0000000" />
+        <ui:Label name="result-time" class="result-line" text="TIME  00:00" />
+        <ui:Label class="hint" text="SPACE  RETRY        ESC  TITLE" />
+    </ui:VisualElement>
+</ui:UXML>

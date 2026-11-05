@@ -18,6 +18,12 @@ namespace Homecoming.Boss
         public float bombDamageScale = 0.3f;
         public int contactDamage = 1;
 
+        [Header("Score")]
+        [Tooltip("태양전지판 포대 하나 파괴 점수")]
+        public int panelScore = 1000;
+        [Tooltip("보스 격파 점수")]
+        public int defeatScore = 10000;
+
         [Header("Hitbox")]
         [Tooltip("1페이즈 (외피 장착) 본체 판정 반경")]
         public float shellRadius = 2f;

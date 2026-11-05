@@ -35,6 +35,7 @@ namespace Homecoming.Boss
         public event Action Defeated;
 
         public BossState State { get; private set; } = BossState.Inactive;
+        public BossConfig Config => config;
         public StageContext Context { get; private set; }
         public EnemyPool EnemyPool { get; private set; }
         public BossLaser Laser => laser;

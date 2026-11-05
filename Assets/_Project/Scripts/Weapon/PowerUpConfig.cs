@@ -11,6 +11,8 @@ namespace Homecoming.Weapon
         public float pickupRadius = 0.8f;
         [Tooltip("플레이 영역 밖으로 이만큼 나가면 사라짐")]
         public float despawnMargin = 1f;
+        [Tooltip("무기가 이미 최대 단계일 때 먹으면 주는 점수")]
+        public int maxLevelBonus = 500;
         [Tooltip("외형 회전 속도 (도/초, 연출)")]
         public float spinSpeed = 120f;
     }

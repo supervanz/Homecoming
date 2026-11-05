@@ -18,6 +18,8 @@ MonoBehaviour:
   desperationThreshold: 0.15
   bombDamageScale: 0.3
   contactDamage: 1
+  panelScore: 1000
+  defeatScore: 10000
   shellRadius: 2
   coreRadius: 1
   entryFrom: {x: 0, y: 15}

@@ -20,12 +20,21 @@ namespace Homecoming.Weapon
         public int MaxLevel => config.MaxLevel;
         public int ShotsFired { get; private set; }
 
+        /// <summary>이미 최대 단계에서 파워업을 먹었을 때 (보너스 점수용)</summary>
+        public event System.Action MaxLevelPowerUpCollected;
+
         /// <summary>한 단계 올린다. 이미 최대면 false.</summary>
         public bool LevelUp()
         {
             if (Level >= config.MaxLevel) return false;
             Level++;
             return true;
+        }
+
+        /// <summary>파워업 획득: 단계를 올리고, 이미 최대면 보너스 이벤트를 보낸다.</summary>
+        public void CollectPowerUp()
+        {
+            if (!LevelUp()) MaxLevelPowerUpCollected?.Invoke();
         }
 
         private void Update()

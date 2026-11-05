@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="Homecoming.uss" />
+    <ui:VisualElement class="title-root">
+        <ui:Label class="title" text="HOMECOMING" />
+        <ui:Label class="subtitle" text="REENTRY" />
+        <ui:Label name="hint" class="hint" text="PRESS SPACE / START" />
+    </ui:VisualElement>
+</ui:UXML>

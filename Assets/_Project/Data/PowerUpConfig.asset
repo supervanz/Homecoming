@@ -15,4 +15,5 @@ MonoBehaviour:
   fallSpeed: 2.5
   pickupRadius: 0.8
   despawnMargin: 1
+  maxLevelBonus: 500
   spinSpeed: 120

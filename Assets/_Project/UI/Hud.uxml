@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="Homecoming.uss" />
+    <ui:VisualElement name="hud-root" class="hud-root" picking-mode="Ignore">
+        <ui:Label name="score" class="score" text="SCORE 0000000" />
+        <ui:VisualElement name="boss" class="boss">
+            <ui:Label text="DERELICT STATION" class="boss-name" />
+            <ui:VisualElement class="boss-bar">
+                <ui:VisualElement name="boss-fill" class="boss-fill" />
+                <ui:VisualElement class="boss-marker" />
+            </ui:VisualElement>
+            <ui:VisualElement class="boss-panels">
+                <ui:VisualElement class="panel-bar"><ui:VisualElement name="panel-fill-0" class="panel-fill" /></ui:VisualElement>
+                <ui:VisualElement class="panel-bar"><ui:VisualElement name="panel-fill-1" class="panel-fill" /></ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label name="banner" class="banner" text="" />
+        <ui:VisualElement class="bottom-left">
+            <ui:Label text="HULL" class="caption" />
+            <ui:VisualElement name="hp" class="pips" />
+            <ui:Label text="BOMB" class="caption" />
+            <ui:VisualElement name="bombs" class="pips" />
+        </ui:VisualElement>
+        <ui:Label name="weapon" class="weapon" text="LV 1" />
+    </ui:VisualElement>
+</ui:UXML>

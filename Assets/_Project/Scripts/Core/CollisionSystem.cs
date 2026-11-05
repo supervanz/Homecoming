@@ -55,7 +55,7 @@ namespace Homecoming.Core
             {
                 PowerUpItem item = items[i];
                 if (!playerHitbox.Overlaps(item.Position, item.Radius)) continue;
-                playerWeapon.LevelUp();
+                playerWeapon.CollectPowerUp();
                 item.Despawn();
             }
         }

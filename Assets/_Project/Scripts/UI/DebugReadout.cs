@@ -19,6 +19,7 @@ namespace Homecoming.UI
         [SerializeField] private PlayerBomb bomb;
         [SerializeField] private WaveSpawner spawner;
         [SerializeField] private BossDirector bossDirector;
+        [SerializeField] private Homecoming.Bot.BotPilot botPilot;
         [SerializeField] private bool visible = false;
         [SerializeField] private int fontSize = 18;
         [SerializeField] private Vector2 position = new Vector2(12f, 12f);
@@ -42,7 +43,9 @@ namespace Homecoming.UI
                 $"Weapon Lv {weapon.Level}/{weapon.MaxLevel}\n" +
                 $"Bomb {bomb.Count}{(bomb.IsActive ? "  (active)" : "")}\n" +
                 $"Time {spawner.Elapsed:0.0}s\n" +
-                $"Seed {GameRandom.Seed}";
+                $"Seed {GameRandom.Seed}\n" +
+                $"Difficulty {Difficulty.Current.name}" +
+                (botPilot != null && botPilot.Bot != null ? $"\nBot {botPilot.Bot.Skill.name}  risk {botPilot.Bot.CurrentRisk:0.00}" : "");
 
             if (bossDirector != null && bossDirector.BossSpawned && !bossDirector.StageCleared)
             {

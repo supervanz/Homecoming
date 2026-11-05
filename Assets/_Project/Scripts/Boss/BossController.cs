@@ -34,7 +34,21 @@ namespace Homecoming.Boss
 
         public event Action Defeated;
 
-        public BossState State { get; private set; } = BossState.Inactive;
+        private BossState _state = BossState.Inactive;
+
+        /// <summary>상태가 바뀔 때 (페이즈별 소요 시간 기록용)</summary>
+        public event Action<BossState> StateChanged;
+
+        public BossState State
+        {
+            get => _state;
+            private set
+            {
+                if (_state == value) return;
+                _state = value;
+                StateChanged?.Invoke(value);
+            }
+        }
         public BossConfig Config => config;
         public StageContext Context { get; private set; }
         public EnemyPool EnemyPool { get; private set; }
@@ -60,13 +74,15 @@ namespace Homecoming.Boss
             _hoverCenter = c + new Vector3(config.hoverPosition.x, 0f, config.hoverPosition.y);
             _swayTime = 0f;
 
-            core.Health.ResetHealth(config.coreHp);
+            float hpScale = Difficulty.Current.bossHpScale;
+            core.Health.ResetHealth(Mathf.Max(1, Mathf.RoundToInt(config.coreHp * hpScale)));
             core.BombDamageScale = config.bombDamageScale;
             core.ContactDamage = config.contactDamage;
             core.Hitbox.Radius = config.shellRadius;
             core.Invulnerable = true;
+            core.SourceTag = "Boss_Core";
             core.Register();
-            foreach (var p in panels) p.Activate(config.panelHp, config.bombDamageScale, config.contactDamage);
+            foreach (var p in panels) p.Activate(Mathf.Max(1, Mathf.RoundToInt(config.panelHp * hpScale)), config.bombDamageScale, config.contactDamage);
             shell.gameObject.SetActive(true);
 
             _main = StartCoroutine(Enter());
@@ -166,7 +182,7 @@ namespace Homecoming.Boss
                 {
                     // IEnumerator를 직접 yield해야 StopCoroutine(_loop) 시 함께 멈춘다.
                     yield return a.Run(this);
-                    yield return new WaitForSeconds(config.actionGap);
+                    yield return new WaitForSeconds(config.actionGap * Difficulty.Current.bossActionGapScale);
                 }
             }
         }

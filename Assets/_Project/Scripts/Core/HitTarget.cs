@@ -20,6 +20,9 @@ namespace Homecoming.Core
         public Health Health => _health != null ? _health : (_health = GetComponent<Health>());
         public CircleHitbox Hitbox => _hitbox != null ? _hitbox : (_hitbox = GetComponent<CircleHitbox>());
 
+        /// <summary>몸통 충돌 시 사망 원인으로 기록할 이름</summary>
+        public string SourceTag { get; set; }
+
         /// <summary>켜져 있으면 탄은 막지만 피해는 받지 않는다 (등장·전환 중)</summary>
         public bool Invulnerable { get; set; }
         public bool IsAlive => !Health.IsDead;

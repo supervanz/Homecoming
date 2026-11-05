@@ -16,10 +16,11 @@ namespace Homecoming.Enemy
 
         public event Action Finished;
 
-        public void Begin(PathConfig path, Vector3 origin, bool mirror, float scrollSpeed)
+        /// <param name="speedScale">난이도 이동 속도 배율. 배경 속도를 따르는 경로(궤도 포대)에는 적용하지 않는다.</param>
+        public void Begin(PathConfig path, Vector3 origin, bool mirror, float scrollSpeed, float speedScale = 1f)
         {
             BuildPoints(path, origin, mirror);
-            _speed = path.useScrollSpeed ? scrollSpeed : path.speed;
+            _speed = path.useScrollSpeed ? scrollSpeed : path.speed * speedScale;
             transform.position = _points[0];
             _target = 1;
             _waitTimer = _waits[0];

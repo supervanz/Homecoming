@@ -20,6 +20,9 @@ namespace Homecoming.Weapon
         public int MaxLevel => config.MaxLevel;
         public int ShotsFired { get; private set; }
 
+        /// <summary>무기 단계가 올랐을 때 (도달 시점 기록용)</summary>
+        public event System.Action<int> LevelChanged;
+
         /// <summary>이미 최대 단계에서 파워업을 먹었을 때 (보너스 점수용)</summary>
         public event System.Action MaxLevelPowerUpCollected;
 
@@ -28,6 +31,7 @@ namespace Homecoming.Weapon
         {
             if (Level >= config.MaxLevel) return false;
             Level++;
+            LevelChanged?.Invoke(Level);
             return true;
         }
 
@@ -44,7 +48,7 @@ namespace Homecoming.Weapon
             {
                 WeaponLevel lv = config.GetLevel(Level);
                 Shoot(lv);
-                _cooldown = lv.fireInterval;
+                _cooldown = lv.fireInterval * Difficulty.Current.playerFireIntervalScale;
             }
         }
 

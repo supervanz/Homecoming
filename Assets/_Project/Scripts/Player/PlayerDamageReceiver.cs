@@ -28,19 +28,26 @@ namespace Homecoming.Player
 
         private void Awake()
         {
-            health.ResetHealth(config.maxHp);
-            hitbox.Radius = config.hitRadius;
+            DifficultyPreset d = Difficulty.Current;
+            health.ResetHealth(Mathf.Max(1, config.maxHp + d.playerMaxHpBonus));
+            hitbox.Radius = config.hitRadius * d.playerHitRadiusScale;
             _renderers = visual.GetComponentsInChildren<Renderer>(true);
             health.Died += OnDied;
         }
 
         private void OnDestroy() => health.Died -= OnDied;
 
-        public void ReceiveHit(int damage)
+        /// <summary>맞았을 때 (원인 이름, 피해). 사망 원인 집계용</summary>
+        public event System.Action<string, int> Hit;
+        public string LastHitSource { get; private set; }
+
+        public void ReceiveHit(int damage, string source = null)
         {
             if (!CanBeHit) return;
+            LastHitSource = string.IsNullOrEmpty(source) ? "unknown" : source;
+            Hit?.Invoke(LastHitSource, damage);
             health.TakeDamage(damage);
-            if (!health.IsDead) _invincibleTimer = config.invincibleTime;
+            if (!health.IsDead) _invincibleTimer = config.invincibleTime * Difficulty.Current.invincibleTimeScale;
         }
 
         private void Update()

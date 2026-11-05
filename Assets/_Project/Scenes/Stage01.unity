@@ -776,6 +776,10 @@ GameObject:
   - component: {fileID: 721415840}
   - component: {fileID: 721415838}
   - component: {fileID: 721415839}
+  - component: {fileID: 721415843}
+  - component: {fileID: 721415841}
+  - component: {fileID: 721415842}
+  - component: {fileID: 721415844}
   m_Layer: 0
   m_Name: Stage
   m_TagString: Untagged
@@ -943,6 +947,87 @@ MonoBehaviour:
   mapName: Menu
   confirmActionName: Confirm
   backActionName: Back
+--- !u!114 &721415841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721415830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cf588010a5f674586d2915e8f4ba7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Bot.BotPilot
+  enableBot: 0
+  skill: {fileID: 11400000, guid: c2599ca05691b534c8e2a9cdbbe5b0ab, type: 2}
+  input: {fileID: 1767818716}
+  context: {fileID: 721415833}
+  movement: {fileID: 1767818715}
+  bomb: {fileID: 1767818722}
+  playerHitbox: {fileID: 1767818719}
+  powerUps: {fileID: 1960073331}
+--- !u!114 &721415842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721415830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78a37e60f119c441a59d19031d45728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.HitboxOverlay
+  visible: 0
+  playerHitbox: {fileID: 1767818719}
+  enemyBullets: {fileID: 404651845}
+  playerColor: {r: 1, g: 0.3, b: 1, a: 1}
+  bulletColor: {r: 1, g: 0.3, b: 0.3, a: 1}
+  targetColor: {r: 1, g: 1, b: 1, a: 0.8}
+  segments: 20
+  height: 0.3
+--- !u!114 &721415843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721415830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ea198410d80a244949da3178b0d367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.DifficultySelector
+  preset: {fileID: 11400000, guid: 9c96ee2ad30a67144a106c2b03a240f4, type: 2}
+--- !u!114 &721415844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721415830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593c5cb96c715ac45b2e4386b2526f49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Bot.RunRecorder
+  spawner: {fileID: 721415832}
+  flow: {fileID: 721415839}
+  player: {fileID: 1767818720}
+  weapon: {fileID: 1767818713}
+  bomb: {fileID: 1767818722}
+  bossDirector: {fileID: 721415837}
+  score: {fileID: 721415838}
+  sections:
+  - label: 0:00-0:30 Zako
+    endTime: 30
+  - label: 0:30-1:30 Aimer
+    endTime: 90
+  - label: 1:30-2:30 Carrier
+    endTime: 150
+  - label: 2:30-3:00 Rest
+    endTime: 999
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,6 +1111,7 @@ MonoBehaviour:
   bomb: {fileID: 1767818722}
   spawner: {fileID: 721415832}
   bossDirector: {fileID: 721415837}
+  botPilot: {fileID: 721415841}
   visible: 0
   fontSize: 18
   position: {x: 12, y: 12}

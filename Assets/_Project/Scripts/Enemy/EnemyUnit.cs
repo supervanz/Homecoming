@@ -42,12 +42,14 @@ namespace Homecoming.Enemy
             _config = config;
             _pool = pool;
             CarriesDrop = carriesDrop;
-            _target.Health.ResetHealth(config.maxHp);
+            DifficultyPreset d = Difficulty.Current;
+            _target.Health.ResetHealth(Mathf.Max(1, Mathf.RoundToInt(config.maxHp * d.enemyHpScale)));
             _target.Hitbox.Radius = config.hitRadius;
             _target.ContactDamage = config.contactDamage;
+            _target.SourceTag = config.name;
             _target.Invulnerable = false;
-            _follower.Begin(path, origin, mirror, ctx.ScrollSpeed);
-            if (gun != null) gun.Begin(config.patterns, config.fireInterval, config.firstShotDelay, ctx);
+            _follower.Begin(path, origin, mirror, ctx.ScrollSpeed, d.enemySpeedScale);
+            if (gun != null) gun.Begin(config.patterns, config.fireInterval * d.enemyFireIntervalScale, config.firstShotDelay, ctx, config.name);
             _live = true;
             _target.Register();
             EnemyRegistry.Add(this);

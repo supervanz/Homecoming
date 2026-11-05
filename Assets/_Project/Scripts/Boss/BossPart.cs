@@ -37,6 +37,7 @@ namespace Homecoming.Boss
             Target.Health.ResetHealth(hp);
             Target.BombDamageScale = bombDamageScale;
             Target.ContactDamage = contactDamage;
+            Target.SourceTag = "Boss_" + name;
             Target.Invulnerable = false;
             Target.Register();
         }

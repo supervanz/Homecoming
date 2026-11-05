@@ -33,7 +33,7 @@ namespace Homecoming.Boss
                 {
                     boss.GetEmitterPositions(emitter, origins);
                     foreach (var o in origins)
-                        BulletEmitter.Fire(pattern, o, b * pattern.rotationPerBurst, boss.Context, 0f);
+                        BulletEmitter.Fire(pattern, o, b * pattern.rotationPerBurst, boss.Context, 0f, name);
                     if (b < pattern.burstCount - 1) yield return new WaitForSeconds(pattern.burstInterval);
                 }
                 if (r < repeat - 1) yield return new WaitForSeconds(repeatInterval);

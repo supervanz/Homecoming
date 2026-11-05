@@ -7,8 +7,10 @@ namespace Homecoming.Weapon
     public static class BulletEmitter
     {
         /// <param name="insideMargin">이만큼 영역 안쪽에 있어야 발사 (화면 밖 저격 방지)</param>
-        public static void Fire(BulletPatternConfig p, Vector3 origin, float extraAngle, StageContext ctx, float insideMargin)
+        /// <param name="sourceTag">사망 원인 집계용 이름 (적 또는 보스 행동)</param>
+        public static void Fire(BulletPatternConfig p, Vector3 origin, float extraAngle, StageContext ctx, float insideMargin, string sourceTag = null)
         {
+            string tag = sourceTag != null ? $"{sourceTag}/{p.name}" : p.name;
             origin.y = 0f;
             if (!ctx.PlayArea.Contains(origin, -insideMargin)) return;
 
@@ -20,6 +22,7 @@ namespace Homecoming.Weapon
                 if (toPlayer.sqrMagnitude > 0.0001f) baseDir = toPlayer.normalized;
             }
 
+            float speed = p.bulletSpeed * Difficulty.Current.enemyBulletSpeedScale;
             int n = Mathf.Max(1, p.bulletCount);
             for (int i = 0; i < n; i++)
             {
@@ -27,7 +30,7 @@ namespace Homecoming.Weapon
                     ? 360f * i / n
                     : (n == 1 ? 0f : Mathf.Lerp(-p.spreadAngle * 0.5f, p.spreadAngle * 0.5f, i / (float)(n - 1)));
                 Vector3 dir = Quaternion.Euler(0f, angle + extraAngle, 0f) * baseDir;
-                ctx.EnemyBullets.Get().Launch(origin, dir, p.bulletSpeed, ctx.PlayArea, ctx.EnemyBullets);
+                ctx.EnemyBullets.Get().Launch(origin, dir, speed, ctx.PlayArea, ctx.EnemyBullets, tag);
             }
         }
     }

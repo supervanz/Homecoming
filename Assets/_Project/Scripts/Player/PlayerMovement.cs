@@ -12,7 +12,9 @@ namespace Homecoming.Player
 
         /// <summary>이번 프레임 실제 이동 속도 (경계에 막히면 0에 가까워짐)</summary>
         public Vector3 Velocity { get; private set; }
-        public float MaxSpeed => config.moveSpeed;
+        public float MaxSpeed => config.moveSpeed * Difficulty.Current.playerMoveSpeedScale;
+        public float EdgeMargin => config.edgeMargin;
+        public PlayArea PlayArea => playArea;
 
         private void Update()
         {
@@ -21,7 +23,7 @@ namespace Homecoming.Player
 
             Vector2 move = input.Current.Move;
             Vector3 before = transform.position;
-            Vector3 target = before + new Vector3(move.x, 0f, move.y) * (config.moveSpeed * dt);
+            Vector3 target = before + new Vector3(move.x, 0f, move.y) * (MaxSpeed * dt);
             Vector3 after = playArea.Clamp(target, config.edgeMargin);
 
             transform.position = after;

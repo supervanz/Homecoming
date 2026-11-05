@@ -27,9 +27,32 @@ namespace Homecoming.Boss
 
         public int Damage { get; private set; }
         public bool IsFiring => _state == LaserState.Firing;
+        /// <summary>예고선 또는 발사 중 (봇이 피할 대상으로 본다)</summary>
+        public bool IsDangerous => _state != LaserState.Off;
+
+        /// <summary>상태와 관계없이 지금 방향의 레이저 범위에 들어가는지 (봇의 예측용)</summary>
+        public bool Covers(Vector3 point, float radius)
+        {
+            if (_state == LaserState.Off) return false;
+            point.y = 0f;
+            Vector3 v = point - _origin;
+            float along = Vector3.Dot(v, _dir);
+            if (along < 0f || along > _length) return false;
+            Vector3 perp = v - _dir * along;
+            float limit = _width * 0.5f + radius;
+            return perp.sqrMagnitude <= limit * limit;
+        }
+
+        public static System.Collections.Generic.List<BossLaser> All { get; } = new System.Collections.Generic.List<BossLaser>();
+
+        private void OnEnable() { if (!All.Contains(this)) All.Add(this); }
+
+        /// <summary>사망 원인 집계용 이름 (레이저 행동 이름)</summary>
+        public string SourceTag { get; private set; }
 
         public IEnumerator Play(BossLaserAction a, Transform origin)
         {
+            SourceTag = a.name;
             _width = a.width;
             _length = a.length;
             Damage = a.damage;
@@ -84,6 +107,10 @@ namespace Homecoming.Boss
             visual.localScale = new Vector3(visualWidth, 0.1f, _length);
         }
 
-        private void OnDisable() => Stop();
+        private void OnDisable()
+        {
+            Stop();
+            All.Remove(this);
+        }
     }
 }

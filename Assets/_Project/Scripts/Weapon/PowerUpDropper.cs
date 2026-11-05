@@ -18,7 +18,7 @@ namespace Homecoming.Weapon
 
         private void OnEnemyKilled(EnemyUnit enemy)
         {
-            bool drop = enemy.CarriesDrop || GameRandom.Value < enemy.Config.powerUpDropChance;
+            bool drop = enemy.CarriesDrop || GameRandom.Value < enemy.Config.powerUpDropChance * Difficulty.Current.dropChanceScale;
             if (!drop) return;
             pool.Get().Launch(enemy.transform.position, config, playArea, pool);
             Dropped++;

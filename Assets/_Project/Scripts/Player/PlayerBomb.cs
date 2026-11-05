@@ -27,7 +27,7 @@ namespace Homecoming.Player
 
         private void Awake()
         {
-            Count = config.startCount;
+            Count = Mathf.Max(0, config.startCount + Difficulty.Current.bombCountBonus);
             _mpb = new MaterialPropertyBlock();
             _waveColor = wave.sharedMaterial.GetColor(BaseColorId);
             wave.gameObject.SetActive(false);
@@ -45,10 +45,14 @@ namespace Homecoming.Player
             UpdateWave();
         }
 
+        /// <summary>폭탄을 쓸 때 (사용 시점 기록용)</summary>
+        public event System.Action BombUsed;
+
         private void Trigger()
         {
             Count--;
             Used++;
+            BombUsed?.Invoke();
             _timer = config.duration;
             receiver.GrantInvincibility(config.duration);
             enemyBullets.ReleaseAll();

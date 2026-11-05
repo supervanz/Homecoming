@@ -19,11 +19,17 @@ namespace Homecoming.Weapon
         private bool _live;
 
         public Vector3 Position => transform.position;
+        /// <summary>현재 속도 (봇이 탄의 예상 경로를 계산할 때 읽는다)</summary>
+        public Vector3 Velocity => _velocity;
         public float Radius => hitRadius;
         public int Damage => damage;
 
-        public void Launch(Vector3 position, Vector3 direction, float speed, PlayArea playArea, BulletPool owner)
+        /// <summary>이 탄을 쏜 적·패턴 이름 (사망 원인 집계용)</summary>
+        public string SourceTag { get; private set; }
+
+        public void Launch(Vector3 position, Vector3 direction, float speed, PlayArea playArea, BulletPool owner, string sourceTag = null)
         {
+            SourceTag = sourceTag;
             position.y = 0f;
             direction.y = 0f;
             transform.SetPositionAndRotation(position, Quaternion.LookRotation(direction.normalized, Vector3.up));

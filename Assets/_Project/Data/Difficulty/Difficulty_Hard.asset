@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ab7e87b66603b49b3263c3c861bc6e, type: 3}
+  m_Name: Difficulty_Hard
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.DifficultyPreset
+  playerMoveSpeedScale: 1
+  playerFireIntervalScale: 1
+  playerHitRadiusScale: 1.2
+  invincibleTimeScale: 0.8
+  playerMaxHpBonus: -1
+  bombCountBonus: -1
+  enemyHpScale: 1.2
+  enemySpeedScale: 1
+  enemyFireIntervalScale: 0.8
+  enemyBulletSpeedScale: 1.15
+  bossHpScale: 1.25
+  bossActionGapScale: 0.8
+  dropChanceScale: 0.7

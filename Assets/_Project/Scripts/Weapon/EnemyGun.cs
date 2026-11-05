@@ -15,10 +15,13 @@ namespace Homecoming.Weapon
         private StageContext _ctx;
         private Coroutine _loop;
 
-        public void Begin(BulletPatternConfig[] patterns, float interval, float firstDelay, StageContext ctx)
+        private string _sourceTag;
+
+        public void Begin(BulletPatternConfig[] patterns, float interval, float firstDelay, StageContext ctx, string sourceTag = null)
         {
             Stop();
             if (patterns == null || patterns.Length == 0) return;
+            _sourceTag = sourceTag;
             _patterns = patterns;
             _interval = interval;
             _ctx = ctx;
@@ -43,7 +46,7 @@ namespace Homecoming.Weapon
                 index++;
                 for (int b = 0; b < p.burstCount; b++)
                 {
-                    BulletEmitter.Fire(p, transform.position, b * p.rotationPerBurst, _ctx, insideMargin);
+                    BulletEmitter.Fire(p, transform.position, b * p.rotationPerBurst, _ctx, insideMargin, _sourceTag);
                     if (b < p.burstCount - 1) yield return new WaitForSeconds(p.burstInterval);
                 }
                 yield return new WaitForSeconds(_interval);

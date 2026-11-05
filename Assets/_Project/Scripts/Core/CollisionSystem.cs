@@ -69,7 +69,7 @@ namespace Homecoming.Core
             {
                 Bullet bullet = bullets[b];
                 if (!playerHitbox.Overlaps(bullet.Position, bullet.Radius)) continue;
-                player.ReceiveHit(bullet.Damage);
+                player.ReceiveHit(bullet.Damage, bullet.SourceTag);
                 bullet.Despawn();
                 return;
             }
@@ -78,7 +78,7 @@ namespace Homecoming.Core
             for (int i = lasers.Count - 1; i >= 0; i--)
             {
                 if (!lasers[i].Hits(playerHitbox.Center, playerHitbox.Radius)) continue;
-                player.ReceiveHit(lasers[i].Damage);
+                player.ReceiveHit(lasers[i].Damage, lasers[i].SourceTag);
                 return;
             }
 
@@ -88,7 +88,7 @@ namespace Homecoming.Core
                 HitTarget target = targets[t];
                 if (target.ContactDamage <= 0) continue;
                 if (!playerHitbox.Overlaps(target.Hitbox.Center, target.Hitbox.Radius)) continue;
-                player.ReceiveHit(target.ContactDamage);
+                player.ReceiveHit(target.ContactDamage, "contact/" + target.SourceTag);
                 return;
             }
         }

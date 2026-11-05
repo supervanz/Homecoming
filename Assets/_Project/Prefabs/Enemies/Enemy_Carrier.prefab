@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 6020124259750580428}
   - component: {fileID: 3236626186132307890}
   - component: {fileID: 2457345265302501760}
+  - component: {fileID: 6872826911221936779}
   m_Layer: 0
   m_Name: Enemy_Carrier
   m_TagString: Untagged
@@ -407,6 +408,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Weapon.EnemyGun
   insideMargin: 0.5
+--- !u!114 &6872826911221936779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5506347266851359807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afc0280eb7c3b44296644c535ba1b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.HitTarget
+  bombDamageScale: 1
+  contactDamage: 1
 --- !u!1 &7043948980013622030
 GameObject:
   m_ObjectHideFlags: 0

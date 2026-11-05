@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 721415831}
   - component: {fileID: 721415836}
   - component: {fileID: 721415835}
+  - component: {fileID: 721415837}
   m_Layer: 0
   m_Name: Stage
   m_TagString: Untagged
@@ -666,6 +667,7 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: dcc0c0c7890693a48aac874f586f47f2, type: 2}
   context: {fileID: 721415833}
   pool: {fileID: 230825694}
+  startTime: 0
 --- !u!114 &721415833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,6 +729,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.GameSeed
   useFixedSeed: 0
   fixedSeed: 0
+--- !u!114 &721415837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721415830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8826249ee8ec22438654f528552c125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Boss.BossDirector
+  spawner: {fileID: 721415832}
+  boss: {fileID: 1492321360}
+  context: {fileID: 721415833}
+  enemyPool: {fileID: 230825694}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,7 +827,9 @@ MonoBehaviour:
   weapon: {fileID: 1767818713}
   bomb: {fileID: 1767818722}
   spawner: {fileID: 721415832}
+  bossDirector: {fileID: 721415837}
   fontSize: 18
+  bannerFontSize: 48
   position: {x: 12, y: 12}
 --- !u!4 &1374736129
 Transform:
@@ -947,6 +967,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1767818718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1492321359
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 817424761290659089, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 817424761290659089, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 817424761290659089, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 817424761290659089, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 817424761290659089, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 817424761290659089, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 817424761290659089, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 817424761290659089, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 817424761290659089, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 817424761290659089, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321232561524790765, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+      propertyPath: m_Name
+      value: Boss_Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321232561524790765, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+--- !u!114 &1492321360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8865618666219776389, guid: 1c08882d53ce93247bb18c43bd1e306b, type: 3}
+  m_PrefabInstance: {fileID: 1492321359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f189de28f5d2da4fb2a848808eb9853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Boss.BossController
 --- !u!1 &1614715783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,3 +1373,4 @@ SceneRoots:
   - {fileID: 1960073332}
   - {fileID: 1382690045}
   - {fileID: 1374736129}
+  - {fileID: 1492321359}

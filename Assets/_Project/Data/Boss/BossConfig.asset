@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4750f2a3f3e30904e97025c2c301c9ae, type: 3}
+  m_Name: BossConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Boss.BossConfig
+  coreHp: 1500
+  panelHp: 150
+  phase2Threshold: 0.5
+  desperationThreshold: 0.15
+  bombDamageScale: 0.3
+  contactDamage: 1
+  shellRadius: 2
+  coreRadius: 1
+  entryFrom: {x: 0, y: 15}
+  hoverPosition: {x: 0, y: 5.5}
+  entrySpeed: 3
+  swayAmplitude: 1.5
+  swayPeriod: 7
+  transitionDuration: 2
+  debrisFallSpeed: 4
+  actionGap: 0.8
+  phase1Actions:
+  - {fileID: 11400000, guid: fc1e208b3b36d764d851001713a4139d, type: 2}
+  - {fileID: 11400000, guid: 2f928c424e79d0643a9af3c688befa20, type: 2}
+  - {fileID: 11400000, guid: fd94cfdd50fc0a442b57d2f8e6c6653b, type: 2}
+  phase2Actions:
+  - {fileID: 11400000, guid: ba51f6e6f42539042af36a6ef49e6dfd, type: 2}
+  - {fileID: 11400000, guid: a5bb13113a4829e49b231640626703bd, type: 2}
+  - {fileID: 11400000, guid: 6e8e288fdf187184bbed309e283dffd7, type: 2}
+  desperationActions:
+  - {fileID: 11400000, guid: f02e8c433df219e4f81eb47c2d57da0e, type: 2}
+  - {fileID: 11400000, guid: ca63b8974d3b6a14e8aa066f0c51ef01, type: 2}
+  - {fileID: 11400000, guid: 8f4d095bcbafa8f4bb18d9904b8a48fa, type: 2}

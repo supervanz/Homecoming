@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 5481808454540689990}
   - component: {fileID: 4617434052404665150}
   - component: {fileID: 2686291972270040332}
+  - component: {fileID: 387075710778948652}
   m_Layer: 0
   m_Name: Enemy_Zako
   m_TagString: Untagged
@@ -482,3 +483,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Enemy.EnemyUnit
   gun: {fileID: 0}
+--- !u!114 &387075710778948652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8983773682310287921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afc0280eb7c3b44296644c535ba1b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.HitTarget
+  bombDamageScale: 1
+  contactDamage: 1

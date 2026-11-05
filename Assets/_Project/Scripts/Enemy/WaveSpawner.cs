@@ -10,12 +10,22 @@ namespace Homecoming.Enemy
         [SerializeField] private StageTimeline timeline;
         [SerializeField] private StageContext context;
         [SerializeField] private EnemyPool pool;
+        [Tooltip("개발용: 이 시각부터 시작 (예: 170이면 보스 직전). 이전 웨이브는 건너뛴다. 기본 0")]
+        [SerializeField] private float startTime = 0f;
 
         private int _next;
 
         /// <summary>스테이지 시작 후 경과 시간 (초)</summary>
         public float Elapsed { get; private set; }
         public bool Finished => _next >= timeline.entries.Length;
+        public StageTimeline Timeline => timeline;
+
+        private void Awake()
+        {
+            Elapsed = startTime;
+            while (_next < timeline.entries.Length && timeline.entries[_next].time < startTime) _next++;
+            if (startTime > 0f) Debug.Log($"[WaveSpawner] starting at {startTime}s (dev start time)");
+        }
 
         private void Update()
         {

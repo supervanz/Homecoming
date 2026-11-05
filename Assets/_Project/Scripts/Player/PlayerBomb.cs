@@ -1,4 +1,4 @@
-using Homecoming.Enemy;
+using Homecoming.Core;
 using Homecoming.Weapon;
 using UnityEngine;
 
@@ -53,12 +53,12 @@ namespace Homecoming.Player
             receiver.GrantInvincibility(config.duration);
             enemyBullets.ReleaseAll();
 
-            // 피해로 적이 죽으면 목록에서 빠지므로 뒤에서부터 돈다.
-            var enemies = EnemyRegistry.Active;
-            for (int i = enemies.Count - 1; i >= 0; i--)
+            // 피해로 대상이 죽으면 목록에서 빠지므로 뒤에서부터 돈다. 보스는 폭탄 피해 배율이 낮다.
+            var targets = HitTargetRegistry.Active;
+            for (int i = targets.Count - 1; i >= 0; i--)
             {
-                if (i >= enemies.Count) continue;
-                enemies[i].TakeDamage(config.damage);
+                if (i >= targets.Count) continue;
+                targets[i].TakeBombDamage(config.damage);
             }
 
             wave.transform.position = new Vector3(transform.position.x, -0.5f, transform.position.z);

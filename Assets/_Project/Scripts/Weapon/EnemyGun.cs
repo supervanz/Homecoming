@@ -43,35 +43,10 @@ namespace Homecoming.Weapon
                 index++;
                 for (int b = 0; b < p.burstCount; b++)
                 {
-                    FireOnce(p, b * p.rotationPerBurst);
+                    BulletEmitter.Fire(p, transform.position, b * p.rotationPerBurst, _ctx, insideMargin);
                     if (b < p.burstCount - 1) yield return new WaitForSeconds(p.burstInterval);
                 }
                 yield return new WaitForSeconds(_interval);
-            }
-        }
-
-        private void FireOnce(BulletPatternConfig p, float extraAngle)
-        {
-            Vector3 origin = transform.position;
-            origin.y = 0f;
-            if (!_ctx.PlayArea.Contains(origin, -insideMargin)) return;
-
-            Vector3 baseDir = Vector3.back;
-            if (p.aimAtPlayer && _ctx.PlayerAlive)
-            {
-                Vector3 toPlayer = _ctx.Player.position - origin;
-                toPlayer.y = 0f;
-                if (toPlayer.sqrMagnitude > 0.0001f) baseDir = toPlayer.normalized;
-            }
-
-            int n = Mathf.Max(1, p.bulletCount);
-            for (int i = 0; i < n; i++)
-            {
-                float angle = p.type == BulletPatternType.Ring
-                    ? 360f * i / n
-                    : (n == 1 ? 0f : Mathf.Lerp(-p.spreadAngle * 0.5f, p.spreadAngle * 0.5f, i / (float)(n - 1)));
-                Vector3 dir = Quaternion.Euler(0f, angle + extraAngle, 0f) * baseDir;
-                _ctx.EnemyBullets.Get().Launch(origin, dir, p.bulletSpeed, _ctx.PlayArea, _ctx.EnemyBullets);
             }
         }
     }

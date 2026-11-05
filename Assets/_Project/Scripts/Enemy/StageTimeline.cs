@@ -24,5 +24,11 @@ namespace Homecoming.Enemy
     {
         [Tooltip("시간 순으로 정렬해 둔다")]
         public SpawnEntry[] entries = new SpawnEntry[0];
+
+        [Header("Boss")]
+        [Tooltip("WARNING 표시 시작 시각 (초)")]
+        public float bossWarningTime = 175f;
+        [Tooltip("보스 등장 시각 (초)")]
+        public float bossSpawnTime = 180f;
     }
 }

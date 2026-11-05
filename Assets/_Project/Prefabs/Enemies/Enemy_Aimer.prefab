@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 2908261035226634204}
   - component: {fileID: 5495811243049460349}
   - component: {fileID: 6294349565399764308}
+  - component: {fileID: 5436491996812871896}
   m_Layer: 0
   m_Name: Enemy_Aimer
   m_TagString: Untagged
@@ -315,6 +316,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Weapon.EnemyGun
   insideMargin: 0.5
+--- !u!114 &5436491996812871896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7532099359137673566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afc0280eb7c3b44296644c535ba1b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.HitTarget
+  bombDamageScale: 1
+  contactDamage: 1
 --- !u!1 &8091374054643092143
 GameObject:
   m_ObjectHideFlags: 0

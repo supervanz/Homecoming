@@ -1,4 +1,4 @@
-using Homecoming.Enemy;
+using Homecoming.Boss;
 using Homecoming.Player;
 using Homecoming.Weapon;
 using UnityEngine;
@@ -6,8 +6,8 @@ using UnityEngine;
 namespace Homecoming.Core
 {
     /// <summary>
-    /// 모든 충돌을 한곳에서 원-원 거리로 판정한다. 이동이 끝난 뒤 실행된다.
-    /// 플레이어 탄 → 적, 적 탄 → 플레이어, 적 기체 → 플레이어(몸통 충돌).
+    /// 모든 충돌을 한곳에서 평면 거리로 판정한다. 이동이 끝난 뒤 실행된다.
+    /// 플레이어 탄 → 맞을 수 있는 대상, 파워업 → 플레이어, 적 탄·레이저·몸통 → 플레이어.
     /// </summary>
     [DefaultExecutionOrder(100)]
     public class CollisionSystem : MonoBehaviour
@@ -26,6 +26,26 @@ namespace Homecoming.Core
             CheckPlayer();
         }
 
+        private void CheckPlayerBullets()
+        {
+            var targets = HitTargetRegistry.Active;
+            var bullets = playerBullets.Active;
+            for (int b = bullets.Count - 1; b >= 0; b--)
+            {
+                if (b >= bullets.Count) continue;
+                Bullet bullet = bullets[b];
+                for (int t = targets.Count - 1; t >= 0; t--)
+                {
+                    if (t >= targets.Count) continue;
+                    HitTarget target = targets[t];
+                    if (!target.Hitbox.Overlaps(bullet.Position, bullet.Radius)) continue;
+                    target.TakeDamage(bullet.Damage);
+                    bullet.Despawn();
+                    break;
+                }
+            }
+        }
+
         // 무적 중에도 아이템은 먹을 수 있다.
         private void CheckPowerUps()
         {
@@ -37,25 +57,6 @@ namespace Homecoming.Core
                 if (!playerHitbox.Overlaps(item.Position, item.Radius)) continue;
                 playerWeapon.LevelUp();
                 item.Despawn();
-            }
-        }
-
-        private void CheckPlayerBullets()
-        {
-            var enemies = EnemyRegistry.Active;
-            var bullets = playerBullets.Active;
-            for (int b = bullets.Count - 1; b >= 0; b--)
-            {
-                if (b >= bullets.Count) continue;
-                Bullet bullet = bullets[b];
-                for (int e = enemies.Count - 1; e >= 0; e--)
-                {
-                    EnemyUnit enemy = enemies[e];
-                    if (!enemy.Hitbox.Overlaps(bullet.Position, bullet.Radius)) continue;
-                    enemy.TakeDamage(bullet.Damage);
-                    bullet.Despawn();
-                    break;
-                }
             }
         }
 
@@ -73,12 +74,21 @@ namespace Homecoming.Core
                 return;
             }
 
-            var enemies = EnemyRegistry.Active;
-            for (int e = enemies.Count - 1; e >= 0; e--)
+            var lasers = LaserRegistry.Active;
+            for (int i = lasers.Count - 1; i >= 0; i--)
             {
-                EnemyUnit enemy = enemies[e];
-                if (!playerHitbox.Overlaps(enemy.Hitbox.Center, enemy.Hitbox.Radius)) continue;
-                player.ReceiveHit(enemy.ContactDamage);
+                if (!lasers[i].Hits(playerHitbox.Center, playerHitbox.Radius)) continue;
+                player.ReceiveHit(lasers[i].Damage);
+                return;
+            }
+
+            var targets = HitTargetRegistry.Active;
+            for (int t = targets.Count - 1; t >= 0; t--)
+            {
+                HitTarget target = targets[t];
+                if (target.ContactDamage <= 0) continue;
+                if (!playerHitbox.Overlaps(target.Hitbox.Center, target.Hitbox.Radius)) continue;
+                player.ReceiveHit(target.ContactDamage);
                 return;
             }
         }

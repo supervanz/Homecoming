@@ -253,3 +253,5 @@ MonoBehaviour:
     spawnPosition: {x: 0, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
+  bossWarningTime: 175
+  bossSpawnTime: 180

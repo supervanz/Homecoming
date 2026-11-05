@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6cc5988e14e9c4e8ac40be4a05b907, type: 3}
+  m_Name: F_StopShoot2
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Enemy.FormationConfig
+  memberOffsets:
+  - {x: -2.5, y: 0}
+  - {x: 2.5, y: 0}
+  memberDelay: 0
+  path: {fileID: 11400000, guid: 72f5aadf87f82fe4ea0fc7248c21280e, type: 2}

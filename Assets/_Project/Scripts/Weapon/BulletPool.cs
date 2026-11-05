@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -11,16 +12,19 @@ namespace Homecoming.Weapon
         [SerializeField] private int maxSize = 256;
 
         private ObjectPool<Bullet> _pool;
+        private readonly List<Bullet> _active = new List<Bullet>();
 
-        public int CountActive => _pool?.CountActive ?? 0;
+        /// <summary>현재 화면에 나와 있는 탄 목록 (충돌 판정용)</summary>
+        public IReadOnlyList<Bullet> Active => _active;
+        public int CountActive => _active.Count;
         public int CountInactive => _pool?.CountInactive ?? 0;
 
         private void Awake()
         {
             _pool = new ObjectPool<Bullet>(
                 createFunc: () => Instantiate(prefab, transform),
-                actionOnGet: b => b.gameObject.SetActive(true),
-                actionOnRelease: b => b.gameObject.SetActive(false),
+                actionOnGet: b => { b.gameObject.SetActive(true); _active.Add(b); },
+                actionOnRelease: b => { b.gameObject.SetActive(false); _active.Remove(b); },
                 actionOnDestroy: b => Destroy(b.gameObject),
                 collectionCheck: false,
                 defaultCapacity: defaultCapacity,

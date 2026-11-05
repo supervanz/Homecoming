@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07a2e32355dae7459a1b56e342c8383, type: 3}
+  m_Name: Path_Sweep
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Enemy.PathConfig
+  points:
+  - position: {x: 0, y: 0}
+    wait: 0
+  - position: {x: 10, y: -4}
+    wait: 0
+  - position: {x: 22, y: -6}
+    wait: 0
+  speed: 8
+  useScrollSpeed: 0
+  smooth: 1
+  smoothSubdivisions: 8

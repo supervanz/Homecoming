@@ -22,7 +22,8 @@ namespace Homecoming.Weapon
                 createFunc: () => Instantiate(prefab, transform),
                 actionOnGet: p => { p.gameObject.SetActive(true); _active.Add(p); },
                 actionOnRelease: p => { p.gameObject.SetActive(false); _active.Remove(p); },
-                actionOnDestroy: p => Destroy(p.gameObject),
+                // 플레이 모드 종료 시 씬 언로드로 이미 파괴된 뒤 Clear가 불릴 수 있다.
+                actionOnDestroy: p => { if (p != null) Destroy(p.gameObject); },
                 collectionCheck: false,
                 defaultCapacity: defaultCapacity,
                 maxSize: maxSize);

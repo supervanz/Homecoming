@@ -21,7 +21,8 @@ namespace Homecoming.Enemy
                     createFunc: () => Instantiate(prefab, transform),
                     actionOnGet: e => e.gameObject.SetActive(true),
                     actionOnRelease: e => e.gameObject.SetActive(false),
-                    actionOnDestroy: e => Destroy(e.gameObject),
+                    // 플레이 모드 종료 시 씬 언로드로 이미 파괴된 뒤 Clear가 불릴 수 있다.
+                    actionOnDestroy: e => { if (e != null) Destroy(e.gameObject); },
                     collectionCheck: false,
                     defaultCapacity: defaultCapacity,
                     maxSize: maxSizePerType);

@@ -13,6 +13,40 @@ AI로 생성한 원화·메쉬·사운드와 외부 에셋의 출처를 기록�
 
 - 컨셉 이미지와 생성 기록 원본은 에셋 준비 작업 폴더(`SourceAssets/`)에 보관되어 있고, 게임 빌드에는 들어가지 않는다.
 
+### 음악 (`Audio/BGM/`)
+
+생성 모델: `elevenlabs-music-v2-5` (연주곡, mp3 44.1kHz 192kbps). 음악 6곡 합계 230 포인트.
+
+| 파일 | 길이 | 용도 |
+|---|---|---|
+| `title.mp3` | 60초 | 타이틀 |
+| `stage.mp3` | 120초 | 스테이지 |
+| `boss_phase1.mp3` | 120초 | 보스 1페이즈 |
+| `boss_phase2.mp3` | 60초 | 보스 2페이즈 |
+| `ending.mp3` | 30초 | 엔딩 (M9) |
+| `gameover.mp3` | 10초 | 게임오버 |
+
+### 효과음 (`Audio/SFX/`)
+
+생성 모델: `elevenlabs-sound-effects-v2` (wav 44.1kHz 스테레오). 효과음 28개 합계 738 포인트.
+
+생성 후 ffmpeg(`volume` 필터)로 복사본의 음량만 보정했다. 원본은 `SourceAssets/SFX/`에 그대로 있다.
+
+| 파일 | 보정 | 이유 |
+|---|---|---|
+| `enemy_hit.wav` | +27 dB | 원본 최대 -33 dB로 거의 들리지 않음 |
+| `explosion_small.wav` | +30 dB | 원본 최대 -33 dB |
+| `ui_move.wav` | +25.8 dB | 원본 최대 -29 dB |
+| `ui_select.wav` | +14.8 dB | 원본 최대 -18 dB |
+| `powerup_pickup.wav` | +7.5 dB | 원본 최대 -10.5 dB |
+| `boss_phase_transition.wav`, `player_death.wav`, `player_fire_lv3.wav`, `weapon_levelup.wav` | -1 dB | 0 dB 클리핑 여유 확보 |
+
+## 도구
+
+| 도구 | 용도 |
+|---|---|
+| ffmpeg 9.0.2 | 효과음 음량 보정 |
+
 ## 패키지
 
 | 패키지 | 용도 |

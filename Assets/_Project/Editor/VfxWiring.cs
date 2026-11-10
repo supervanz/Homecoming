@@ -93,7 +93,8 @@ namespace Homecoming.EditorTools
             // 기본 발광은 거의 검정이라 평소 모습은 바뀌지 않는다.
             var m = AssetDatabase.LoadAssetAtPath<Material>(path);
             m.SetColor("_EmissionColor", new Color(0.002f, 0.002f, 0.002f));
-            m.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+            // None이면 URP의 머티리얼 검사(재임포트 시)가 _EMISSION을 꺼 버린다. 베이크를 쓰지 않으므로 BakedEmissive는 영향 없음.
+            m.globalIlluminationFlags = MaterialGlobalIlluminationFlags.BakedEmissive;
             m.EnableKeyword("_EMISSION");
             EditorUtility.SetDirty(m);
         }

@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="Homecoming.uss" />
+    <ui:VisualElement name="ending-root" class="ending-root" picking-mode="Ignore">
+        <ui:VisualElement name="ending-fade" class="ending-fade" picking-mode="Ignore" />
+        <ui:Label name="ending-welcome" class="ending-welcome" text="WELCOME HOME" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>

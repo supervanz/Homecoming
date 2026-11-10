@@ -52,3 +52,9 @@ AI로 생성한 원화·메쉬·사운드와 외부 에셋의 출처를 기록�
 | 패키지 | 용도 |
 |---|---|
 | glTFast (`com.unity.cloud.gltfast` 6.20.0) | `.glb` 모델 임포트 |
+| Timeline (`com.unity.timeline` 6.6.0) | 엔딩 시퀀스 (M9) |
+
+## 절차적 생성 (외부 에셋·AI 미사용)
+
+- `Art/Textures/T_Earth.png`: 지구 텍스처. `Editor/EndingBuilder.cs`가 펄린 노이즈로 생성 (M9)
+- `VFX/Textures/T_VfxSoft.png`, `T_VfxRing.png`: 파티클 텍스처. `Editor/VfxBuilder.cs`가 생성 (M8)

@@ -82,7 +82,7 @@ namespace Homecoming.Audio
 
             // 저체력 경고 (반복)
             Health h = player.Health;
-            bool low = player.IsAlive && h.Current <= Sfx.Config.lowHpThreshold;
+            bool low = player.IsAlive && flow.State == GameFlow.FlowState.Playing && h.Current <= Sfx.Config.lowHpThreshold;
             if (low) Sfx.StartLoop(SoundId.LowHpWarning);
             else Sfx.StopLoop(SoundId.LowHpWarning);
 

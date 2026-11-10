@@ -21,8 +21,10 @@ namespace Homecoming.Core
         [SerializeField] private MenuInput menu;
         [Tooltip("사망 후 결과창까지 대기 (초)")]
         [SerializeField] private float gameOverDelay = 1.5f;
-        [Tooltip("보스 격파 후 결과창까지 대기 (초). M9에서 엔딩 시퀀스로 대체")]
+        [Tooltip("엔딩 시퀀스를 건너뛸 때(봇 시뮬레이션) 보스 격파 후 결과창까지 대기 (초)")]
         [SerializeField] private float clearDelay = 1f;
+        [Tooltip("보스 격파 후 재생할 대기권 재진입 엔딩 (15장)")]
+        [SerializeField] private Homecoming.Ending.EndingSequence ending;
         [SerializeField] private string titleScene = "Title";
 
         public FlowState State { get; private set; } = FlowState.Playing;
@@ -74,7 +76,20 @@ namespace Homecoming.Core
         }
 
         private void OnPlayerDied(Health _) => Finish(FlowState.GameOver, gameOverDelay);
-        private void OnBossDefeated() => Finish(FlowState.Cleared, clearDelay);
+        private void OnBossDefeated() => PlayEndingNow();
+
+        /// <summary>클리어 처리: 엔딩을 재생하고 끝나면 결과창. F3 디버그 재생도 이 경로를 쓴다.</summary>
+        public void PlayEndingNow()
+        {
+            if (State != FlowState.Playing) return;
+            if (ending == null || !ending.ShouldPlay)
+            {
+                Finish(FlowState.Cleared, clearDelay);
+                return;
+            }
+            State = FlowState.Cleared;
+            ending.Play(() => StartCoroutine(ShowResultAfter(0f)));
+        }
 
         private void Finish(FlowState result, float delay)
         {

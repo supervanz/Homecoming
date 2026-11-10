@@ -43,6 +43,13 @@ namespace Homecoming.Enemy
             }
         }
 
+        /// <summary>스폰을 완전히 멈춘다 (엔딩). 편대 멤버를 차례로 내보내던 코루틴도 함께 멈춘다.</summary>
+        public void Halt()
+        {
+            enabled = false;
+            StopAllCoroutines();
+        }
+
         private IEnumerator SpawnFormation(SpawnEntry entry)
         {
             FormationConfig f = entry.formation;

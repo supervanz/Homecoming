@@ -57,6 +57,9 @@ namespace Homecoming.Enemy
 
         public void TakeDamage(int amount) => _target.TakeDamage(amount);
 
+        /// <summary>격파 처리 없이 풀로 돌려보낸다 (엔딩 시작 시 남은 적 정리). 점수·드롭 없음.</summary>
+        public void Retire() => Despawn();
+
         private void OnKilled()
         {
             if (!_live) return;

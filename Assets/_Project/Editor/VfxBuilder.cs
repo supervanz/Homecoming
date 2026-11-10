@@ -20,7 +20,7 @@ namespace Homecoming.EditorTools
         private const string PrefabDir = Root + "/Prefabs";
         private const string ConfigPath = "Assets/_Project/Data/VfxConfig.asset";
 
-        private static Material _soft, _ring, _debris;
+        private static Material _soft, _ring, _debris, _smoke;
         private static Mesh _cube;
 
         // 진영 색 (13-2)
@@ -73,6 +73,11 @@ namespace Homecoming.EditorTools
                 SaveLoop("Vfx_DamageHuman_2", t => BuildDamage(t, 2, true)),
                 SaveLoop("Vfx_DamageHuman_3", t => BuildDamage(t, 3, true)),
             };
+
+            // 엔딩 전용 (M9): 대기권 재진입에서만 연기·구름을 쓴다 (13-4, 15-2)
+            _smoke = AlphaMaterial("M_VfxSmoke", softTex);
+            SaveLoop("Vfx_ReentryHeat", BuildReentryHeat);
+            SaveLoop("Vfx_Clouds", BuildClouds);
 
             WriteConfig(fx, ai, human);
             AssetDatabase.SaveAssets();
@@ -213,6 +218,67 @@ namespace Homecoming.EditorTools
             }
         }
 
+        // ---------- 엔딩 (15-1) ----------
+
+        // 기체 앞머리의 달아오른 막 + 뒤로 흐르는 불꽃·불티·연기. 기체를 따라다니도록 Local.
+        // 발생량은 EndingController가 rateOverTimeMultiplier로 0~1 조절한다.
+        private static void BuildReentryHeat(Transform t)
+        {
+            ParticleSystem sheath = t.GetComponent<ParticleSystem>();
+            Defaults(sheath, _soft, true);
+            Local(sheath);
+            var em = sheath.emission; em.rateOverTime = 30f;
+            Life(sheath, 0.15f, 0.25f); Size(sheath, 1.6f, 2.4f); Speed(sheath, 0f, 0.3f); Sphere(sheath, 0.3f);
+            Colors(sheath, Grad3(Color.white, HuFireHot, HuFire, 0.7f));
+            sheath.transform.localPosition = Vector3.zero;
+
+            var flames = Layer(t, "Flames", _soft, true);
+            Local(flames);
+            var fem = flames.emission; fem.rateOverTime = 60f;
+            Life(flames, 0.25f, 0.4f); Size(flames, 0.7f, 1.3f); Speed(flames, 7f, 11f); Cone(flames, 14f, 0.6f);
+            Colors(flames, Grad3(HuFireHot, HuFire, new Color(0.7f, 0.1f, 0.05f), 0.9f));
+            SizeCurve(flames, new AnimationCurve(new Keyframe(0f, 0.6f), new Keyframe(0.3f, 1f), new Keyframe(1f, 0.3f)));
+            flames.transform.localPosition = new Vector3(0f, 0f, 0.6f);
+
+            var streaks = Layer(t, "Streaks", _soft, true);
+            Local(streaks);
+            var sem = streaks.emission; sem.rateOverTime = 40f;
+            Life(streaks, 0.2f, 0.35f); Size(streaks, 0.06f, 0.1f); Speed(streaks, 14f, 22f); Cone(streaks, 10f, 0.9f);
+            Colors(streaks, Grad(HuFireHot, HuFire, 1f)); Stretch(streaks, 0.04f);
+            streaks.transform.localPosition = new Vector3(0f, 0f, 0.6f);
+
+            var smoke = Layer(t, "Smoke", _smoke, true);
+            Local(smoke);
+            var mem = smoke.emission; mem.rateOverTime = 18f;
+            Life(smoke, 0.6f, 0.9f); Size(smoke, 1f, 1.8f); Speed(smoke, 6f, 9f); Cone(smoke, 18f, 0.7f);
+            Colors(smoke, Grad(new Color(0.4f, 0.37f, 0.35f), new Color(0.25f, 0.24f, 0.24f), 0.45f));
+            SizeCurve(smoke, new AnimationCurve(new Keyframe(0f, 0.5f), new Keyframe(1f, 2f)));
+            smoke.transform.localPosition = new Vector3(0f, 0f, -0.4f);
+        }
+
+        // 화면 위쪽 앞에서 생겨 카메라 아래로 빠르게 지나가는 구름. 놓을 위치는 씬에서 정한다.
+        private static void BuildClouds(Transform t)
+        {
+            ParticleSystem c = t.GetComponent<ParticleSystem>();
+            Defaults(c, _smoke, true);
+            var main = c.main; main.maxParticles = 120;
+            var em = c.emission; em.rateOverTime = 40f;
+            Life(c, 1.1f, 1.4f); Size(c, 9f, 16f); Speed(c, 40f, 50f);
+            var s = c.shape;
+            s.enabled = true;
+            s.shapeType = ParticleSystemShapeType.Box;
+            s.scale = new Vector3(34f, 8f, 2f);
+            s.randomDirectionAmount = 0f;
+            var col = new Gradient
+            {
+                colorKeys = new[] { new GradientColorKey(Color.white, 0f), new GradientColorKey(new Color(0.9f, 0.94f, 1f), 1f) },
+                alphaKeys = new[] { new GradientAlphaKey(0f, 0f), new GradientAlphaKey(0.85f, 0.2f), new GradientAlphaKey(0.85f, 0.75f), new GradientAlphaKey(0f, 1f) },
+            };
+            Colors(c, col);
+            var r = c.GetComponent<ParticleSystemRenderer>();
+            r.maxParticleSize = 4f;
+        }
+
         // ---------- 레이어 조합 ----------
 
         private static void Flash(Transform t, Color c, float size, float life)
@@ -346,6 +412,23 @@ namespace Homecoming.EditorTools
             s.shapeType = ParticleSystemShapeType.Circle;
             s.radius = radius;
             s.rotation = new Vector3(90f, 0f, 0f);
+        }
+
+        private static void Local(ParticleSystem p)
+        {
+            var m = p.main;
+            m.simulationSpace = ParticleSystemSimulationSpace.Local;
+        }
+
+        // -Z(화면 아래)로 뿜는 원뿔
+        private static void Cone(ParticleSystem p, float angle, float radius)
+        {
+            var s = p.shape;
+            s.enabled = true;
+            s.shapeType = ParticleSystemShapeType.Cone;
+            s.angle = angle;
+            s.radius = radius;
+            s.rotation = new Vector3(0f, 180f, 0f);
         }
 
         private static void Sphere(ParticleSystem p, float radius)
@@ -483,6 +566,26 @@ namespace Homecoming.EditorTools
             m.SetFloat("_DstBlend", (float)BlendMode.One);
             m.SetFloat("_SrcBlendAlpha", (float)BlendMode.One);
             m.SetFloat("_DstBlendAlpha", (float)BlendMode.One);
+            m.SetFloat("_ZWrite", 0f);
+            m.SetOverrideTag("RenderType", "Transparent");
+            m.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+            m.renderQueue = (int)RenderQueue.Transparent;
+            EditorUtility.SetDirty(m);
+            return m;
+        }
+
+        // 알파 혼합: 연기·구름 (엔딩 전용)
+        private static Material AlphaMaterial(string name, Texture2D tex)
+        {
+            Material m = LoadOrCreate(name, "Universal Render Pipeline/Particles/Unlit");
+            m.SetTexture("_BaseMap", tex);
+            m.SetColor("_BaseColor", Color.white);
+            m.SetFloat("_Surface", 1f);
+            m.SetFloat("_Blend", 0f);
+            m.SetFloat("_SrcBlend", (float)BlendMode.SrcAlpha);
+            m.SetFloat("_DstBlend", (float)BlendMode.OneMinusSrcAlpha);
+            m.SetFloat("_SrcBlendAlpha", (float)BlendMode.One);
+            m.SetFloat("_DstBlendAlpha", (float)BlendMode.OneMinusSrcAlpha);
             m.SetFloat("_ZWrite", 0f);
             m.SetOverrideTag("RenderType", "Transparent");
             m.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");

@@ -13,6 +13,15 @@ namespace Homecoming.Core
 
         private Transform[] _stars;
         private float[] _speeds;
+        private float[] _sizes;
+
+        /// <summary>별 크기 배율 (엔딩의 하늘 전환에서 0으로 줄여 사라지게 한다)</summary>
+        public void SetVisibility(float v)
+        {
+            if (_stars == null) return;
+            for (int i = 0; i < _stars.Length; i++)
+                _stars[i].localScale = Vector3.one * (_sizes[i] * Mathf.Clamp01(v));
+        }
 
         private void Start()
         {
@@ -22,6 +31,7 @@ namespace Homecoming.Core
             Mesh cube = Resources.GetBuiltinResource<Mesh>("Cube.fbx");
             _stars = new Transform[config.starCount];
             _speeds = new float[config.starCount];
+            _sizes = new float[config.starCount];
             Vector2 half = config.fieldSize * 0.5f;
 
             for (int i = 0; i < config.starCount; i++)
@@ -36,6 +46,7 @@ namespace Homecoming.Core
 
                 float size = Range(config.minStarSize, config.maxStarSize);
                 go.transform.localScale = Vector3.one * size;
+                _sizes[i] = size;
                 go.transform.localPosition = new Vector3(Range(-half.x, half.x), -config.depth, Range(-half.y, half.y));
                 _stars[i] = go.transform;
                 _speeds[i] = config.scrollSpeed * Range(config.parallaxRange.x, config.parallaxRange.y);

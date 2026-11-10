@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 4617434052404665150}
   - component: {fileID: 2686291972270040332}
   - component: {fileID: 387075710778948652}
+  - component: {fileID: 5580707344047372095}
   m_Layer: 0
   m_Name: Enemy_Zako
   m_TagString: Untagged
@@ -225,6 +226,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.HitTarget
   bombDamageScale: 1
   contactDamage: 1
+--- !u!114 &5580707344047372095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8983773682310287921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be94913a92b29954292c6dbc84973293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.HitFlash
+  config: {fileID: 11400000, guid: a33d1b45c1ef94e45b7b0d2917612d39, type: 2}
+  health: {fileID: 7336324351731290290}
+  visual: {fileID: 1264080608020514105}
 --- !u!1001 &424027544174005125
 PrefabInstance:
   m_ObjectHideFlags: 0

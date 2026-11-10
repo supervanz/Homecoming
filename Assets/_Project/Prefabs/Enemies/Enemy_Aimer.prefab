@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 5495811243049460349}
   - component: {fileID: 6294349565399764308}
   - component: {fileID: 5436491996812871896}
+  - component: {fileID: 7101006551241096946}
   m_Layer: 0
   m_Name: Enemy_Aimer
   m_TagString: Untagged
@@ -330,6 +331,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.HitTarget
   bombDamageScale: 1
   contactDamage: 1
+--- !u!114 &7101006551241096946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7532099359137673566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be94913a92b29954292c6dbc84973293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.HitFlash
+  config: {fileID: 11400000, guid: a33d1b45c1ef94e45b7b0d2917612d39, type: 2}
+  health: {fileID: 6024360001497914220}
+  visual: {fileID: 6174757227615676538}
 --- !u!1 &8091374054643092143
 GameObject:
   m_ObjectHideFlags: 0

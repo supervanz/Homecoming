@@ -103,6 +103,8 @@ GameObject:
   - component: {fileID: 5041703414424082894}
   - component: {fileID: 6445000224979574103}
   - component: {fileID: 4855878038356601746}
+  - component: {fileID: 4772745894211897500}
+  - component: {fileID: 7075144702047314423}
   m_Layer: 0
   m_Name: PanelR
   m_TagString: Untagged
@@ -181,6 +183,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Boss.BossPart
   visual: {fileID: 8939784666475087610}
   muzzle: {fileID: 7610420043738143735}
+--- !u!114 &4772745894211897500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621647463697243131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be94913a92b29954292c6dbc84973293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.HitFlash
+  config: {fileID: 11400000, guid: a33d1b45c1ef94e45b7b0d2917612d39, type: 2}
+  health: {fileID: 7157819275480033447}
+  visual: {fileID: 8939784666475087610}
+--- !u!114 &7075144702047314423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621647463697243131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b2873688d58b641a33b9fcf15a5793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.DamageStateVfx
+  config: {fileID: 11400000, guid: a33d1b45c1ef94e45b7b0d2917612d39, type: 2}
+  health: {fileID: 7157819275480033447}
+  faction: 0
+  anchor: {fileID: 6511426981062352309}
+  localOffset: {x: 0, y: 0.5, z: 0}
+  scale: 1.4
+  flash: {fileID: 4772745894211897500}
 --- !u!1 &2825973720744163521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,6 +1345,8 @@ GameObject:
   - component: {fileID: 4301253130313495342}
   - component: {fileID: 4677498402983456035}
   - component: {fileID: 7510912134882576096}
+  - component: {fileID: 6116637971317963363}
+  - component: {fileID: 3556459598788542082}
   m_Layer: 0
   m_Name: PanelL
   m_TagString: Untagged
@@ -1387,6 +1425,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Boss.BossPart
   visual: {fileID: 4953817136075994097}
   muzzle: {fileID: 5141719218403086354}
+--- !u!114 &6116637971317963363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7308817678420041398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be94913a92b29954292c6dbc84973293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.HitFlash
+  config: {fileID: 11400000, guid: a33d1b45c1ef94e45b7b0d2917612d39, type: 2}
+  health: {fileID: 131483525941319411}
+  visual: {fileID: 4953817136075994097}
+--- !u!114 &3556459598788542082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7308817678420041398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b2873688d58b641a33b9fcf15a5793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.DamageStateVfx
+  config: {fileID: 11400000, guid: a33d1b45c1ef94e45b7b0d2917612d39, type: 2}
+  health: {fileID: 131483525941319411}
+  faction: 0
+  anchor: {fileID: 6831958110658944843}
+  localOffset: {x: 0, y: 0.5, z: 0}
+  scale: 1.4
+  flash: {fileID: 6116637971317963363}
 --- !u!1 &7321232561524790765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,6 +1472,9 @@ GameObject:
   - component: {fileID: 4148412569764756350}
   - component: {fileID: 8188743386183830281}
   - component: {fileID: 8903746328201342491}
+  - component: {fileID: 4404337478597198049}
+  - component: {fileID: 2164893637642684749}
+  - component: {fileID: 6892284621104622981}
   m_Layer: 0
   m_Name: Boss_Station
   m_TagString: Untagged
@@ -1488,6 +1563,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.HitTarget
   bombDamageScale: 1
   contactDamage: 1
+--- !u!114 &4404337478597198049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321232561524790765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be94913a92b29954292c6dbc84973293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.HitFlash
+  config: {fileID: 11400000, guid: a33d1b45c1ef94e45b7b0d2917612d39, type: 2}
+  health: {fileID: 4148412569764756350}
+  visual: {fileID: 5132726184341440879}
+--- !u!114 &2164893637642684749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321232561524790765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be94913a92b29954292c6dbc84973293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.HitFlash
+  config: {fileID: 11400000, guid: a33d1b45c1ef94e45b7b0d2917612d39, type: 2}
+  health: {fileID: 4148412569764756350}
+  visual: {fileID: 6179789695972558094}
+--- !u!114 &6892284621104622981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321232561524790765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b2873688d58b641a33b9fcf15a5793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.DamageStateVfx
+  config: {fileID: 11400000, guid: a33d1b45c1ef94e45b7b0d2917612d39, type: 2}
+  health: {fileID: 4148412569764756350}
+  faction: 0
+  anchor: {fileID: 817424761290659089}
+  localOffset: {x: 0, y: 0.8, z: 0}
+  scale: 2.2
+  flash: {fileID: 2164893637642684749}
 --- !u!1 &7881131673733038881
 GameObject:
   m_ObjectHideFlags: 0

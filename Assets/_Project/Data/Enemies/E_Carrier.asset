@@ -17,6 +17,7 @@ MonoBehaviour:
   hitRadius: 1.4
   contactDamage: 1
   deathSound: 13
+  deathVfx: 3
   score: 2000
   powerUpDropChance: 1
   patterns:

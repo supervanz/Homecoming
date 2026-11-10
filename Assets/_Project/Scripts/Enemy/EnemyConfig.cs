@@ -20,6 +20,10 @@ namespace Homecoming.Enemy
         [Tooltip("격파 시 폭발음 (잡몹 = 소형, 중형 이상 = 중형)")]
         public Homecoming.Audio.SoundId deathSound = Homecoming.Audio.SoundId.ExplosionSmall;
 
+        [Header("VFX")]
+        [Tooltip("격파 시 폭발 이펙트 (잡몹 = 소형, 중형 이상 = 중형)")]
+        public Homecoming.Vfx.VfxId deathVfx = Homecoming.Vfx.VfxId.ExplosionSmall;
+
         [Header("Score")]
         [Tooltip("격파 점수")]
         public int score = 100;

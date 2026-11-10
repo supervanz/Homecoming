@@ -13,7 +13,7 @@ namespace Homecoming.Player
         [SerializeField] private ShipInput input;
         [SerializeField] private BulletPool enemyBullets;
         [SerializeField] private PlayerDamageReceiver receiver;
-        [Tooltip("임시 연출용 원판 (M8에서 교체)")]
+        [Tooltip("퍼져 나가는 원판 (폭탄 범위 표시). 섬광·불씨·충격파 링은 StageVfx의 Bomb 이펙트가 더한다")]
         [SerializeField] private Renderer wave;
 
         private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");

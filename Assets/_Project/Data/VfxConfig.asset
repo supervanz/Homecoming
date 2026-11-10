@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d3127e9963565439b6db135ccaf72c, type: 3}
+  m_Name: VfxConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.VfxConfig
+  effectHeight: -0.6
+  maxActiveEffects: 40
+  hitFlashDuration: 0.05
+  hitFlashColor: {r: 2, g: 2, b: 2, a: 1}
+  screenShakeDefault: 1
+  maxShake: 0.6
+  damageStage1: 0.7
+  damageStage2: 0.4
+  damageStage3: 0.15
+  aiDamagePrefabs:
+  - {fileID: 734966655558515854, guid: 3d938b0fb65d4eb459ac4a0f71813b96, type: 3}
+  - {fileID: 7849436563675404829, guid: 4159a36e9e3a2574da4ecfb468d2f0f6, type: 3}
+  - {fileID: 1985620630243897330, guid: 37eaaca8048aab4469f0407e168a7687, type: 3}
+  humanDamagePrefabs:
+  - {fileID: 7080890868541866479, guid: e1b8c9b8855dfa64b96d92b02887a4a5, type: 3}
+  - {fileID: 543338179911661560, guid: cbf866b95278a3242b300712d7268416, type: 3}
+  - {fileID: 5466918274701767012, guid: 29492e7ac685784469955ae498e1813e, type: 3}
+  criticalBlinkInterval: 0.25
+  criticalBlinkColor: {r: 1.2, g: 0.15, b: 0.1, a: 1}
+  effects:
+  - id: 1
+    prefab: {fileID: 4761353486417103311, guid: 572129425d089d24ea319a6132b07420, type: 3}
+    prewarm: 8
+    maxSimultaneous: 12
+    scale: 1
+    shake: 0
+    shakeDuration: 0
+    hitStop: 0
+  - id: 2
+    prefab: {fileID: 3072628694067640348, guid: 3f692a41ad6af5a4ebb09fed36c4d77d, type: 3}
+    prewarm: 6
+    maxSimultaneous: 10
+    scale: 1
+    shake: 0
+    shakeDuration: 0
+    hitStop: 0
+  - id: 3
+    prefab: {fileID: 184002633317185872, guid: c46cc1a7b076e4e459f4b0fee9047ee9, type: 3}
+    prewarm: 3
+    maxSimultaneous: 5
+    scale: 1
+    shake: 0.15
+    shakeDuration: 0.25
+    hitStop: 0
+  - id: 4
+    prefab: {fileID: 7489611902248528553, guid: fb21a18506e21d843b760a95915118f2, type: 3}
+    prewarm: 1
+    maxSimultaneous: 2
+    scale: 1
+    shake: 0.22
+    shakeDuration: 0.25
+    hitStop: 0
+  - id: 5
+    prefab: {fileID: 2753336414933003457, guid: 5161b94a753bd0744b8105b235347c4e, type: 3}
+    prewarm: 1
+    maxSimultaneous: 1
+    scale: 1
+    shake: 0.3
+    shakeDuration: 0.5
+    hitStop: 0.12
+  - id: 6
+    prefab: {fileID: 5689210995716015527, guid: 689153bd004988040b69af1f32ba2f36, type: 3}
+    prewarm: 1
+    maxSimultaneous: 2
+    scale: 1
+    shake: 0.35
+    shakeDuration: 0.5
+    hitStop: 0
+  - id: 7
+    prefab: {fileID: 5684693433289103804, guid: 0d155881b6dbaea409084427fba94344, type: 3}
+    prewarm: 1
+    maxSimultaneous: 1
+    scale: 1
+    shake: 0.6
+    shakeDuration: 1
+    hitStop: 0.2
+  - id: 8
+    prefab: {fileID: 6832416072735703168, guid: 520f4b7288b87c04da0671f878b8f057, type: 3}
+    prewarm: 1
+    maxSimultaneous: 1
+    scale: 1
+    shake: 0.4
+    shakeDuration: 0.6
+    hitStop: 0

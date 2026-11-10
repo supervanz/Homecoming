@@ -321,6 +321,8 @@ GameObject:
   - component: {fileID: 3236626186132307890}
   - component: {fileID: 2457345265302501760}
   - component: {fileID: 6872826911221936779}
+  - component: {fileID: 3156793875124863010}
+  - component: {fileID: 2806218376996539265}
   m_Layer: 0
   m_Name: Enemy_Carrier
   m_TagString: Untagged
@@ -422,6 +424,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.HitTarget
   bombDamageScale: 1
   contactDamage: 1
+--- !u!114 &3156793875124863010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5506347266851359807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be94913a92b29954292c6dbc84973293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.HitFlash
+  config: {fileID: 11400000, guid: a33d1b45c1ef94e45b7b0d2917612d39, type: 2}
+  health: {fileID: 9193564469358845525}
+  visual: {fileID: 3906105744782960161}
+--- !u!114 &2806218376996539265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5506347266851359807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b2873688d58b641a33b9fcf15a5793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.DamageStateVfx
+  config: {fileID: 11400000, guid: a33d1b45c1ef94e45b7b0d2917612d39, type: 2}
+  health: {fileID: 9193564469358845525}
+  faction: 0
+  anchor: {fileID: 6719744984270932154}
+  localOffset: {x: 0, y: 0.6, z: 0}
+  scale: 1.6
+  flash: {fileID: 3156793875124863010}
 --- !u!1 &7043948980013622030
 GameObject:
   m_ObjectHideFlags: 0

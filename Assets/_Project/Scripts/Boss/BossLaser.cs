@@ -47,6 +47,10 @@ namespace Homecoming.Boss
 
         private void OnEnable() { if (!All.Contains(this)) All.Add(this); }
 
+        /// <summary>예고선 시작 / 발사 시작 (사운드용)</summary>
+        public static event System.Action TelegraphStarted;
+        public static event System.Action FireStarted;
+
         /// <summary>사망 원인 집계용 이름 (레이저 행동 이름)</summary>
         public string SourceTag { get; private set; }
 
@@ -59,6 +63,7 @@ namespace Homecoming.Boss
 
             _state = LaserState.Telegraph;
             telegraph.gameObject.SetActive(true);
+            TelegraphStarted?.Invoke();
             for (float t = 0f; t < a.telegraphTime; t += Time.deltaTime)
             {
                 Aim(origin, a.startAngle, telegraph, telegraphWidth);
@@ -69,6 +74,7 @@ namespace Homecoming.Boss
             _state = LaserState.Firing;
             LaserRegistry.Add(this);
             beam.gameObject.SetActive(true);
+            FireStarted?.Invoke();
             for (float t = 0f; t < a.fireTime; t += Time.deltaTime)
             {
                 float angle = a.mode == LaserMode.Sweep ? Mathf.Lerp(a.startAngle, a.endAngle, t / a.fireTime) : a.startAngle;

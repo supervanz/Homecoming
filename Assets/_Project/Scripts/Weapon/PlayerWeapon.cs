@@ -20,6 +20,11 @@ namespace Homecoming.Weapon
         public int MaxLevel => config.MaxLevel;
         public int ShotsFired { get; private set; }
 
+        /// <summary>발사할 때 (현재 단계). 발사음용</summary>
+        public event System.Action<int> Fired;
+        /// <summary>파워업을 먹었을 때 (최대 단계 포함). 획득음용</summary>
+        public event System.Action PowerUpCollected;
+
         /// <summary>무기 단계가 올랐을 때 (도달 시점 기록용)</summary>
         public event System.Action<int> LevelChanged;
 
@@ -38,6 +43,7 @@ namespace Homecoming.Weapon
         /// <summary>파워업 획득: 단계를 올리고, 이미 최대면 보너스 이벤트를 보낸다.</summary>
         public void CollectPowerUp()
         {
+            PowerUpCollected?.Invoke();
             if (!LevelUp()) MaxLevelPowerUpCollected?.Invoke();
         }
 
@@ -62,6 +68,7 @@ namespace Homecoming.Weapon
                 pool.Get().Launch(muzzle.position, dir, lv.bulletSpeed, playArea, pool);
             }
             ShotsFired++;
+            Fired?.Invoke(Level);
         }
     }
 }

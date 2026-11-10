@@ -31,6 +31,8 @@ namespace Homecoming.Core
         public float PlayTime { get; private set; }
 
         public event Action ResultReady;
+        /// <summary>결과창에서 재시작·타이틀을 고를 때 (선택음용)</summary>
+        public event Action MenuChosen;
 
         private void Awake()
         {
@@ -59,8 +61,16 @@ namespace Homecoming.Core
             if (State == FlowState.Playing) PlayTime += Time.deltaTime;
             if (!ResultShown) return;
 
-            if (menu.ConfirmPressed) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            else if (menu.BackPressed) SceneManager.LoadScene(titleScene);
+            if (menu.ConfirmPressed)
+            {
+                MenuChosen?.Invoke();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            else if (menu.BackPressed)
+            {
+                MenuChosen?.Invoke();
+                SceneManager.LoadScene(titleScene);
+            }
         }
 
         private void OnPlayerDied(Health _) => Finish(FlowState.GameOver, gameOverDelay);

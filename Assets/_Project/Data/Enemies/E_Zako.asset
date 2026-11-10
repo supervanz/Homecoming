@@ -16,6 +16,7 @@ MonoBehaviour:
   maxHp: 2
   hitRadius: 0.5
   contactDamage: 1
+  deathSound: 12
   score: 100
   powerUpDropChance: 0.03
   patterns: []

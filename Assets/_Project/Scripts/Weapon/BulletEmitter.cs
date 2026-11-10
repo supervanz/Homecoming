@@ -6,6 +6,9 @@ namespace Homecoming.Weapon
     /// <summary>탄 패턴 한 번 분량을 한 지점에서 발사한다. 일반 적과 보스가 같이 쓴다.</summary>
     public static class BulletEmitter
     {
+        /// <summary>적·보스가 탄을 쏠 때 (발사음용)</summary>
+        public static event System.Action Fired;
+
         /// <param name="insideMargin">이만큼 영역 안쪽에 있어야 발사 (화면 밖 저격 방지)</param>
         /// <param name="sourceTag">사망 원인 집계용 이름 (적 또는 보스 행동)</param>
         public static void Fire(BulletPatternConfig p, Vector3 origin, float extraAngle, StageContext ctx, float insideMargin, string sourceTag = null)
@@ -32,6 +35,7 @@ namespace Homecoming.Weapon
                 Vector3 dir = Quaternion.Euler(0f, angle + extraAngle, 0f) * baseDir;
                 ctx.EnemyBullets.Get().Launch(origin, dir, speed, ctx.PlayArea, ctx.EnemyBullets, tag);
             }
+            Fired?.Invoke();
         }
     }
 }

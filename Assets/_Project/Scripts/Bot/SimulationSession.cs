@@ -47,6 +47,7 @@ namespace Homecoming.Bot
             QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = -1;
             Difficulty.Override = cfg.preset;
+            AudioListener.volume = 0f; // 빠르게 진행되는 판에서 소리가 겹치지 않게
             SceneManager.sceneLoaded += OnSceneLoaded;
             Debug.Log($"[Simulation] start: {cfg.skills.Length} skills x {cfg.runsPerSkill} runs, preset {(cfg.preset != null ? cfg.preset.name : "none")}");
             StartRun();
@@ -120,6 +121,7 @@ namespace Homecoming.Bot
 
             Time.captureDeltaTime = 0f;
             Time.timeScale = 1f;
+            AudioListener.volume = 1f;
             Difficulty.Override = null;
             BotPilot.ForcedSkill = null;
             GameSeed.ForcedSeed = null;

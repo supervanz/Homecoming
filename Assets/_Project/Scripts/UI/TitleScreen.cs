@@ -15,6 +15,9 @@ namespace Homecoming.UI
 
         private Label _hint;
 
+        /// <summary>시작을 눌렀을 때 (게임 시작음용)</summary>
+        public event System.Action StartRequested;
+
         private void OnEnable()
         {
             Time.timeScale = 1f;
@@ -27,7 +30,11 @@ namespace Homecoming.UI
                 _hint.style.opacity = Mathf.FloorToInt(Time.unscaledTime * hintBlinkRate * 2f) % 2 == 0 ? 1f : 0.25f;
 
             // 이 첫 입력은 M8에서 WebGL 오디오를 시작하는 시점으로도 쓴다 (14-5).
-            if (menu.ConfirmPressed) SceneManager.LoadScene(stageScene);
+            if (menu.ConfirmPressed)
+            {
+                StartRequested?.Invoke();
+                SceneManager.LoadScene(stageScene);
+            }
         }
     }
 }

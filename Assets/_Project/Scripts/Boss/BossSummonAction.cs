@@ -14,8 +14,12 @@ namespace Homecoming.Boss
         [Tooltip("소환 후 다음 행동까지 대기 (초)")]
         public float waitAfter = 1f;
 
+        /// <summary>소환을 시작할 때 (사운드용)</summary>
+        public static event System.Action Summoned;
+
         public override IEnumerator Run(BossController boss)
         {
+            Summoned?.Invoke();
             Vector3 center = boss.CorePosition;
             for (int i = 0; i < formation.memberOffsets.Length; i++)
             {

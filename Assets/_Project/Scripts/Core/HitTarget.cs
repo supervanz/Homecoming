@@ -39,10 +39,14 @@ namespace Homecoming.Core
             set => bombDamageScale = value;
         }
 
+        /// <summary>어떤 대상이든 피해를 받았을 때 (피탄음용)</summary>
+        public static event System.Action<HitTarget> AnyDamaged;
+
         public void TakeDamage(int amount)
         {
             if (Invulnerable) return;
             Health.TakeDamage(amount);
+            AnyDamaged?.Invoke(this);
         }
 
         public void TakeBombDamage(int amount)

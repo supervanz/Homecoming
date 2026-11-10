@@ -780,6 +780,7 @@ GameObject:
   - component: {fileID: 721415841}
   - component: {fileID: 721415842}
   - component: {fileID: 721415844}
+  - component: {fileID: 721415845}
   m_Layer: 0
   m_Name: Stage
   m_TagString: Untagged
@@ -1028,6 +1029,26 @@ MonoBehaviour:
     endTime: 150
   - label: 2:30-3:00 Rest
     endTime: 999
+--- !u!114 &721415845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721415830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 096b145db3b6c0a46afcc4f96128a479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Audio.StageAudio
+  player: {fileID: 1767818720}
+  weapon: {fileID: 1767818713}
+  bomb: {fileID: 1767818722}
+  bossDirector: {fileID: 721415837}
+  flow: {fileID: 721415839}
+  bombDuck: 1.5
+  transitionDuck: 1.5
+  bossDestroyDuck: 3
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,6 +1749,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2105918779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105918782}
+  - component: {fileID: 2105918781}
+  - component: {fileID: 2105918780}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2105918780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105918779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3416e3d6b4f8a6b41bcb7f7c995686bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Audio.MusicPlayer
+  config: {fileID: 11400000, guid: aea622c367176ff4bbcfd4a0c59e599a, type: 2}
+--- !u!114 &2105918781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105918779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2409436b5e176b4db8f524c55154fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Audio.SfxPlayer
+  config: {fileID: 11400000, guid: aea622c367176ff4bbcfd4a0c59e599a, type: 2}
+--- !u!4 &2105918782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105918779}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2144465312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,3 +1874,4 @@ SceneRoots:
   - {fileID: 1492321359}
   - {fileID: 2011367946}
   - {fileID: 87433093}
+  - {fileID: 2105918782}

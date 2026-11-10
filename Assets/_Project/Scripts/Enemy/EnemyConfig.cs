@@ -16,6 +16,10 @@ namespace Homecoming.Enemy
         [Tooltip("플레이어와 몸통이 부딪혔을 때 주는 피해")]
         public int contactDamage = 1;
 
+        [Header("Sound")]
+        [Tooltip("격파 시 폭발음 (잡몹 = 소형, 중형 이상 = 중형)")]
+        public Homecoming.Audio.SoundId deathSound = Homecoming.Audio.SoundId.ExplosionSmall;
+
         [Header("Score")]
         [Tooltip("격파 점수")]
         public int score = 100;

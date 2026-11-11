@@ -10,6 +10,9 @@ AI로 생성한 원화·메쉬·사운드와 외부 에셋의 출처를 기록�
 |---|---|---|---|---|
 | `Art/Models/player_ship.glb` | 플레이어 유랑선 | 컨셉 이미지 `gemini-nano-banana-2-1` → 배경 제거 `photoroom-bg-removal` → 3D `model3d-tripo-p2` (Tripo P2, glb, 10k faces, PBR) | 8 + 3 + 186 | 임포트 후 Y 180° 회전, 1.4배 |
 | `Art/Models/sat_small.glb` | 잡몹 위성, 보스 소환 드론 | 컨셉 이미지 `gemini-nano-banana-2-1` → 배경 제거 `photoroom-bg-removal` → 3D `model3d-tripo-p2` (Tripo P2, glb) | 8 + 3 + 186 | 생성 텍스처가 회색 한 가지로 나와 메쉬만 사용. 재질은 `M_EnemyPrimitive`(흰 금속)로 교체. 2배 |
+| `Art/Models/sat_aim.glb` | 조준 위성 (조준·궤도 포대) | 컨셉 `gemini-nano-banana-2-1` → 배경 제거 `photoroom-bg-removal` → 3D `model3d-tripo-p2` (glb, 10k faces) | 8 + 3 + 203 | 재질 `M_Aimer` (URP Lit, 생성 텍스처 사용). Y 270°, 폭 1.3 (2026-11-11) |
+| `Art/Models/carrier.glb` | 중형 캐리어 | 컨셉 `gemini-nano-banana-2-1` → 배경 제거 `photoroom-bg-removal` → 3D `model3d-tripo-p2` (glb, 10k faces) | 8 + 3 + 203 | 재질 `M_Carrier`. Y 270°, 폭 3.2 (2026-11-11) |
+| `Art/Models/boss_shell.glb` | 보스 외피 (1페이즈) | 컨셉 `gemini-nano-banana-2-1` → 배경 제거 `photoroom-bg-removal` → 3D `model3d-tripo-p2` (glb, 10k faces) | 8 + 3 + 203 | 재질 `M_BossShell`. Y 270°, 폭 5.2. 보스 코어·좌우 포대는 프리미티브 유지 (2026-11-11) |
 
 - 컨셉 이미지와 생성 기록 원본은 에셋 준비 작업 폴더(`SourceAssets/`)에 보관되어 있고, 게임 빌드에는 들어가지 않는다.
 

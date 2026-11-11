@@ -31,7 +31,7 @@ namespace Homecoming.EditorTools
             EditPrefab(PrefabDir + "Enemies/Enemy_Carrier.prefab", root =>
             {
                 HitFlash f = Flash(root.gameObject, cfg, root.GetComponent<Health>(), root.Find("Visual"));
-                Damage(root.gameObject, cfg, root.GetComponent<Health>(), VfxFaction.Ai, root, new Vector3(0f, 0.6f, 0f), 1.6f, f);
+                Damage(root.gameObject, cfg, root.GetComponent<Health>(), VfxFaction.Ai, root, new Vector3(0f, 0.25f, 0f), 1.6f, f);
             });
 
             EditPrefab(PrefabDir + "Boss_Station.prefab", root =>

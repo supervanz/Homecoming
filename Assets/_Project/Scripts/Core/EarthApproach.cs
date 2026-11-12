@@ -17,12 +17,12 @@ namespace Homecoming.Core
         [SerializeField] private float appearTime = 150f;
         [Tooltip("이 시각(초)에 가장 가까워짐")]
         [SerializeField] private float closestTime = 270f;
-        [SerializeField] private Vector3 farPosition = new Vector3(0f, -401f, 98f);
-        [SerializeField] private Vector3 nearPosition = new Vector3(0f, -250f, 78f);
+        [SerializeField] private Vector3 farPosition = new Vector3(0f, -401f, 55f);
+        [SerializeField] private Vector3 nearPosition = new Vector3(0f, -249f, 50f);
         [SerializeField] private float farScale = 70f;
         [SerializeField] private float nearScale = 140f;
         [Tooltip("엔딩에서 빠져나갈 때 이동량 (화면 아래쪽으로)")]
-        [SerializeField] private Vector3 exitOffset = new Vector3(0f, -128f, -215f);
+        [SerializeField] private Vector3 exitOffset = new Vector3(0f, -106f, -227f);
         [Tooltip("자전 속도 (도/초)")]
         [SerializeField] private float spinSpeed = 1.5f;
 

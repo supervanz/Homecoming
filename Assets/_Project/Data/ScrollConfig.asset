@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ScrollConfig
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.ScrollConfig
   scrollSpeed: 3
-  starCount: 80
-  fieldSize: {x: 30, y: 30}
+  starCount: 120
+  fieldSize: {x: 24, y: 38}
   depth: 4
   minStarSize: 0.05
   maxStarSize: 0.15

@@ -18,6 +18,6 @@ MonoBehaviour:
   endAngle: 0
   telegraphTime: 1.2
   fireTime: 1.4
-  width: 1.8
+  width: 1.35
   length: 40
   damage: 1

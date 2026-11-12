@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: F_StopShoot2
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Enemy.FormationConfig
   memberOffsets:
-  - {x: -2.5, y: 0}
-  - {x: 2.5, y: 0}
+  - {x: -2, y: 0}
+  - {x: 2, y: 0}
   memberDelay: 0
   path: {fileID: 11400000, guid: 72f5aadf87f82fe4ea0fc7248c21280e, type: 2}

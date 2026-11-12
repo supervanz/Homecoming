@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Enemy.FormationConfig
   memberOffsets:
   - {x: 0, y: 0}
-  - {x: -1.4, y: 1.2}
-  - {x: 1.4, y: 1.2}
-  - {x: -2.8, y: 2.4}
-  - {x: 2.8, y: 2.4}
+  - {x: -1.1, y: 1.2}
+  - {x: 1.1, y: 1.2}
+  - {x: -2.2, y: 2.4}
+  - {x: 2.2, y: 2.4}
   memberDelay: 0
   path: {fileID: 11400000, guid: 0121a27f01ca75c4083e45fa98533b6a, type: 2}

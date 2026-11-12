@@ -283,8 +283,8 @@ namespace Homecoming.EditorTools
             // 지구
             var spawner = Object.FindAnyObjectByType<WaveSpawner>();
             GameObject earthGo = Find("Earth") ?? new GameObject("Earth");
-            // 자전축을 카메라 위쪽 방향(59°)으로 눕혀 극이 아닌 적도 쪽이 보이게, 23° 기울기
-            earthGo.transform.rotation = Quaternion.Euler(59f, 0f, 23f);
+            // 자전축을 카메라 위쪽 방향(65°)으로 눕혀 극이 아닌 적도 쪽이 보이게, 23° 기울기
+            earthGo.transform.rotation = Quaternion.Euler(65f, 0f, 23f);
             Renderer surface = Child(earthGo.transform, "Surface", sphere, earthMat, 1f);
             Renderer atmo = Child(earthGo.transform, "Atmosphere", sphere, atmoMat, 1.06f);
             _ = surface;
@@ -293,11 +293,11 @@ namespace Homecoming.EditorTools
             Set(earth, "atmosphere", atmo);
             // 카메라 시선 축 위 먼 곳에 두어, 플레이 영역 아래에서 원반처럼 점점 커지게 한다
             var eso = new SerializedObject(earth);
-            eso.FindProperty("farPosition").vector3Value = new Vector3(0f, -401f, 98f);
-            eso.FindProperty("nearPosition").vector3Value = new Vector3(0f, -250f, 78f);
+            eso.FindProperty("farPosition").vector3Value = new Vector3(0f, -401f, 55f);
+            eso.FindProperty("nearPosition").vector3Value = new Vector3(0f, -249f, 50f);
             eso.FindProperty("farScale").floatValue = 70f;
             eso.FindProperty("nearScale").floatValue = 140f;
-            eso.FindProperty("exitOffset").vector3Value = new Vector3(0f, -128f, -215f);
+            eso.FindProperty("exitOffset").vector3Value = new Vector3(0f, -106f, -227f);
             eso.ApplyModifiedPropertiesWithoutUndo();
 
             // 플레이어 열기, 구름

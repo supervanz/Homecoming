@@ -31,6 +31,9 @@ namespace Homecoming.Vfx
             if (Instance == this) Instance = null;
         }
 
+        /// <summary>흔들림이 돌아올 기준 위치를 바꾼다 (화면 비율에 맞춰 카메라를 옮길 때, CameraFit).</summary>
+        public void SetBasePosition(Vector3 localPosition) => _basePosition = localPosition;
+
         /// <summary>남은 흔들림보다 센 요청만 덮어쓴다.</summary>
         public void Shake(float strength, float duration)
         {

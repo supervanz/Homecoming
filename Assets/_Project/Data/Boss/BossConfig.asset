@@ -20,12 +20,12 @@ MonoBehaviour:
   contactDamage: 1
   panelScore: 1000
   defeatScore: 10000
-  shellRadius: 2
-  coreRadius: 1
+  shellRadius: 1.5
+  coreRadius: 0.75
   entryFrom: {x: 0, y: 15}
   hoverPosition: {x: 0, y: 5.5}
   entrySpeed: 3
-  swayAmplitude: 1.5
+  swayAmplitude: 0.6
   swayPeriod: 7
   transitionDuration: 2
   debrisFallSpeed: 4

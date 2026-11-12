@@ -15,13 +15,13 @@ MonoBehaviour:
   points:
   - position: {x: 0, y: 0}
     wait: 0
-  - position: {x: 3, y: -4}
+  - position: {x: 2, y: -4}
     wait: 0
-  - position: {x: -3, y: -8}
+  - position: {x: -2, y: -8}
     wait: 0
-  - position: {x: 3, y: -12}
+  - position: {x: 2, y: -12}
     wait: 0
-  - position: {x: -3, y: -16}
+  - position: {x: -2, y: -16}
     wait: 0
   - position: {x: 0, y: -22}
     wait: 0

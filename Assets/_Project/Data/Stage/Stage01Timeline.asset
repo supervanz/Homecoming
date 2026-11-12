@@ -22,67 +22,67 @@ MonoBehaviour:
   - time: 7
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: f9dd2bd2a49203441bc47871d5738d2d, type: 2}
-    spawnPosition: {x: -4, y: 10.5}
+    spawnPosition: {x: -2.5, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 12
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: f9dd2bd2a49203441bc47871d5738d2d, type: 2}
-    spawnPosition: {x: 4, y: 10.5}
+    spawnPosition: {x: 2.5, y: 10.5}
     mirror: 1
     guaranteedDrop: 0
   - time: 17
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: 310b1407f4f7b7742b09c446dfb12901, type: 2}
-    spawnPosition: {x: -10.5, y: 6}
+    spawnPosition: {x: -6.8, y: 6}
     mirror: 0
     guaranteedDrop: 0
   - time: 21
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: 310b1407f4f7b7742b09c446dfb12901, type: 2}
-    spawnPosition: {x: 10.5, y: 6}
+    spawnPosition: {x: 6.8, y: 6}
     mirror: 1
     guaranteedDrop: 0
   - time: 26
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: 4d58ed31fe7b08e4dbe34f31715f0163, type: 2}
-    spawnPosition: {x: -3, y: 10.5}
+    spawnPosition: {x: -1.9, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 28
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: 4d58ed31fe7b08e4dbe34f31715f0163, type: 2}
-    spawnPosition: {x: 3, y: 10.5}
+    spawnPosition: {x: 1.9, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 32
     enemy: {fileID: 11400000, guid: 59bd64cda33ce2341a8ba753451b5055, type: 2}
     formation: {fileID: 11400000, guid: b0ff5f42e7fa03d458776e7a4f49eeb5, type: 2}
-    spawnPosition: {x: -4, y: 10.5}
+    spawnPosition: {x: -2.5, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 34
     enemy: {fileID: 11400000, guid: 59bd64cda33ce2341a8ba753451b5055, type: 2}
     formation: {fileID: 11400000, guid: b0ff5f42e7fa03d458776e7a4f49eeb5, type: 2}
-    spawnPosition: {x: 4, y: 10.5}
+    spawnPosition: {x: 2.5, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 38
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: f9dd2bd2a49203441bc47871d5738d2d, type: 2}
-    spawnPosition: {x: -5, y: 10.5}
+    spawnPosition: {x: -3.1, y: 10.5}
     mirror: 0
     guaranteedDrop: 1
   - time: 42
     enemy: {fileID: 11400000, guid: ff3e2ba22914bac4d961b010a6fffcb0, type: 2}
     formation: {fileID: 11400000, guid: 60f5c1d5c393cda4cbec95cc6623a8ee, type: 2}
-    spawnPosition: {x: -6, y: 10.5}
+    spawnPosition: {x: -3.75, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 42
     enemy: {fileID: 11400000, guid: ff3e2ba22914bac4d961b010a6fffcb0, type: 2}
     formation: {fileID: 11400000, guid: 60f5c1d5c393cda4cbec95cc6623a8ee, type: 2}
-    spawnPosition: {x: 6, y: 10.5}
+    spawnPosition: {x: 3.75, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 47
@@ -100,49 +100,49 @@ MonoBehaviour:
   - time: 57
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: 310b1407f4f7b7742b09c446dfb12901, type: 2}
-    spawnPosition: {x: -10.5, y: 6}
+    spawnPosition: {x: -6.8, y: 6}
     mirror: 0
     guaranteedDrop: 0
   - time: 60
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: 310b1407f4f7b7742b09c446dfb12901, type: 2}
-    spawnPosition: {x: 10.5, y: 4}
+    spawnPosition: {x: 6.8, y: 4}
     mirror: 1
     guaranteedDrop: 0
   - time: 63
     enemy: {fileID: 11400000, guid: ff3e2ba22914bac4d961b010a6fffcb0, type: 2}
     formation: {fileID: 11400000, guid: 60f5c1d5c393cda4cbec95cc6623a8ee, type: 2}
-    spawnPosition: {x: -2, y: 10.5}
+    spawnPosition: {x: -1.25, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 63
     enemy: {fileID: 11400000, guid: ff3e2ba22914bac4d961b010a6fffcb0, type: 2}
     formation: {fileID: 11400000, guid: 60f5c1d5c393cda4cbec95cc6623a8ee, type: 2}
-    spawnPosition: {x: 2, y: 10.5}
+    spawnPosition: {x: 1.25, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 68
     enemy: {fileID: 11400000, guid: 59bd64cda33ce2341a8ba753451b5055, type: 2}
     formation: {fileID: 11400000, guid: b0ff5f42e7fa03d458776e7a4f49eeb5, type: 2}
-    spawnPosition: {x: -5, y: 10.5}
+    spawnPosition: {x: -3.1, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 69
     enemy: {fileID: 11400000, guid: 59bd64cda33ce2341a8ba753451b5055, type: 2}
     formation: {fileID: 11400000, guid: b0ff5f42e7fa03d458776e7a4f49eeb5, type: 2}
-    spawnPosition: {x: 5, y: 10.5}
+    spawnPosition: {x: 3.1, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 74
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: f9dd2bd2a49203441bc47871d5738d2d, type: 2}
-    spawnPosition: {x: -4, y: 10.5}
+    spawnPosition: {x: -2.5, y: 10.5}
     mirror: 0
     guaranteedDrop: 1
   - time: 74
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: f9dd2bd2a49203441bc47871d5738d2d, type: 2}
-    spawnPosition: {x: 4, y: 10.5}
+    spawnPosition: {x: 2.5, y: 10.5}
     mirror: 1
     guaranteedDrop: 0
   - time: 80
@@ -160,7 +160,7 @@ MonoBehaviour:
   - time: 87
     enemy: {fileID: 11400000, guid: ff3e2ba22914bac4d961b010a6fffcb0, type: 2}
     formation: {fileID: 11400000, guid: 60f5c1d5c393cda4cbec95cc6623a8ee, type: 2}
-    spawnPosition: {x: -5, y: 10.5}
+    spawnPosition: {x: -3.1, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 92
@@ -172,37 +172,37 @@ MonoBehaviour:
   - time: 98
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: f9dd2bd2a49203441bc47871d5738d2d, type: 2}
-    spawnPosition: {x: -5, y: 10.5}
+    spawnPosition: {x: -3.1, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 103
     enemy: {fileID: 11400000, guid: 59bd64cda33ce2341a8ba753451b5055, type: 2}
     formation: {fileID: 11400000, guid: b0ff5f42e7fa03d458776e7a4f49eeb5, type: 2}
-    spawnPosition: {x: 5, y: 10.5}
+    spawnPosition: {x: 3.1, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 108
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: 4d58ed31fe7b08e4dbe34f31715f0163, type: 2}
-    spawnPosition: {x: -3, y: 10.5}
+    spawnPosition: {x: -1.9, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 112
     enemy: {fileID: 11400000, guid: 6ba8b5cef1178dd4a8ea9918718b441c, type: 2}
     formation: {fileID: 11400000, guid: 5b9f564d4a05c9f4cbc18a42a37524dc, type: 2}
-    spawnPosition: {x: -4, y: 10.5}
+    spawnPosition: {x: -2.5, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 116
     enemy: {fileID: 11400000, guid: ff3e2ba22914bac4d961b010a6fffcb0, type: 2}
     formation: {fileID: 11400000, guid: 60f5c1d5c393cda4cbec95cc6623a8ee, type: 2}
-    spawnPosition: {x: 5, y: 10.5}
+    spawnPosition: {x: 3.1, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 120
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: 310b1407f4f7b7742b09c446dfb12901, type: 2}
-    spawnPosition: {x: 10.5, y: 6}
+    spawnPosition: {x: 6.8, y: 6}
     mirror: 1
     guaranteedDrop: 0
   - time: 124
@@ -214,25 +214,25 @@ MonoBehaviour:
   - time: 128
     enemy: {fileID: 11400000, guid: 6ba8b5cef1178dd4a8ea9918718b441c, type: 2}
     formation: {fileID: 11400000, guid: 5b9f564d4a05c9f4cbc18a42a37524dc, type: 2}
-    spawnPosition: {x: 4, y: 10.5}
+    spawnPosition: {x: 2.5, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 133
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: f9dd2bd2a49203441bc47871d5738d2d, type: 2}
-    spawnPosition: {x: -4, y: 10.5}
+    spawnPosition: {x: -2.5, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 133
     enemy: {fileID: 11400000, guid: e4e32b68383f7bc499fe506d89dcdd36, type: 2}
     formation: {fileID: 11400000, guid: f9dd2bd2a49203441bc47871d5738d2d, type: 2}
-    spawnPosition: {x: 4, y: 10.5}
+    spawnPosition: {x: 2.5, y: 10.5}
     mirror: 1
     guaranteedDrop: 0
   - time: 138
     enemy: {fileID: 11400000, guid: ff3e2ba22914bac4d961b010a6fffcb0, type: 2}
     formation: {fileID: 11400000, guid: 60f5c1d5c393cda4cbec95cc6623a8ee, type: 2}
-    spawnPosition: {x: -6, y: 10.5}
+    spawnPosition: {x: -3.75, y: 10.5}
     mirror: 0
     guaranteedDrop: 0
   - time: 138

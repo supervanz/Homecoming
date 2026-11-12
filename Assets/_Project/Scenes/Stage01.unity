@@ -390,11 +390,11 @@ MonoBehaviour:
   atmosphere: {fileID: 1126523693}
   appearTime: 150
   closestTime: 270
-  farPosition: {x: 0, y: -401, z: 98}
-  nearPosition: {x: 0, y: -250, z: 78}
+  farPosition: {x: 0, y: -401, z: 55}
+  nearPosition: {x: 0, y: -249, z: 50}
   farScale: 70
   nearScale: 140
-  exitOffset: {x: 0, y: -128, z: -215}
+  exitOffset: {x: 0, y: -106, z: -227}
   spinSpeed: 1.5
 --- !u!4 &264020736
 Transform:
@@ -404,7 +404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264020734}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.48253804, y: -0.09817347, z: 0.17352101, w: 0.85288304}
+  m_LocalRotation: {x: 0.5265132, y: -0.10712032, z: 0.16814521, w: 0.8264601}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -426,6 +426,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -500,8 +501,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4942247, y: 0, z: 0, w: 0.8693342}
-  m_LocalPosition: {x: 0, y: 21, z: -14}
+  m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433914}
+  m_LocalPosition: {x: -0, y: 30.49871, z: -14.221781}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -565,6 +566,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Vfx.CameraShake
   config: {fileID: 11400000, guid: a33d1b45c1ef94e45b7b0d2917612d39, type: 2}
   frequency: 25
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b9f73bb95a7bf46b6917691a25e480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.CameraFit
+  playArea: {fileID: 1614715784}
+  worldMargin: 0.8
+  topPadding: 0.07
+  bottomPadding: 0.08
+  sidePadding: 0.02
+  maxPullBack: 120
 --- !u!1 &401348444
 GameObject:
   m_ObjectHideFlags: 0

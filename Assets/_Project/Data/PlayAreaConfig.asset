@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299c0ffa5c296744b9b8f39b7b305edb, type: 3}
   m_Name: PlayAreaConfig
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Core.PlayAreaConfig
-  size: {x: 16, y: 18}
+  size: {x: 10, y: 18}

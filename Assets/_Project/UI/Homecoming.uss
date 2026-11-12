@@ -1,9 +1,9 @@
-/* Homecoming UI. 인간(플레이어) = 따뜻한 주황, AI(보스) = 붉은색 */
+/* Homecoming UI (세로 9:16 기준, 1080px 폭에서 글자가 넘치지 않게). 인간(플레이어) = 따뜻한 주황, AI(보스) = 붉은색 */
 .hud-root { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
 
 .score { position: absolute; top: 16px; left: 0; right: 0; -unity-text-align: upper-center; font-size: 36px; color: rgb(255, 190, 110); -unity-font-style: bold; }
 
-.boss { position: absolute; top: 68px; left: 30%; right: 30%; display: none; }
+.boss { position: absolute; top: 68px; left: 15%; right: 15%; display: none; }
 .boss--visible { display: flex; }
 .boss-name { color: rgb(255, 90, 90); font-size: 18px; -unity-text-align: middle-center; margin-bottom: 4px; }
 .boss-bar { height: 16px; background-color: rgba(60, 0, 0, 0.8); border-width: 1px; border-color: rgb(255, 90, 90); }
@@ -13,7 +13,7 @@
 .panel-bar { width: 30%; height: 6px; background-color: rgba(60, 0, 0, 0.8); }
 .panel-fill { height: 100%; width: 100%; background-color: rgb(255, 120, 120); }
 
-.banner { position: absolute; top: 40%; left: 0; right: 0; -unity-text-align: middle-center; font-size: 72px; -unity-font-style: bold; color: rgb(255, 60, 60); }
+.banner { position: absolute; top: 40%; left: 0; right: 0; -unity-text-align: middle-center; font-size: 60px; -unity-font-style: bold; color: rgb(255, 60, 60); }
 .banner--clear { color: rgb(255, 190, 110); }
 
 .bottom-left { position: absolute; left: 24px; bottom: 24px; }
@@ -27,16 +27,16 @@
 
 .overlay { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.75); align-items: center; justify-content: center; display: none; }
 .overlay--visible { display: flex; }
-.result-title { font-size: 80px; -unity-font-style: bold; color: rgb(255, 190, 110); }
+.result-title { font-size: 64px; -unity-font-style: bold; color: rgb(255, 190, 110); }
 .result-title--over { color: rgb(255, 60, 60); }
 .result-line { font-size: 32px; color: rgb(255, 255, 255); margin-top: 8px; }
 .hint { font-size: 22px; color: rgb(200, 200, 200); margin-top: 40px; }
 
 .title-root { position: absolute; left: 0; top: 0; right: 0; bottom: 0; align-items: center; justify-content: center; background-color: rgb(5, 6, 12); }
-.title { font-size: 96px; -unity-font-style: bold; color: rgb(255, 190, 110); }
+.title { font-size: 80px; -unity-font-style: bold; color: rgb(255, 190, 110); }
 .subtitle { font-size: 28px; color: rgb(200, 210, 230); letter-spacing: 12px; }
 
 /* 엔딩 (15-2): 따뜻한 플레이어 진영 색, 단순하고 큰 산세리프 */
 .ending-root { position: absolute; left: 0; top: 0; right: 0; bottom: 0; align-items: center; justify-content: center; }
 .ending-fade { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: rgb(0, 0, 0); opacity: 0; }
-.ending-welcome { font-size: 72px; -unity-font-style: bold; color: rgb(255, 196, 120); letter-spacing: 8px; white-space: nowrap; opacity: 0; -unity-text-align: middle-center; }
+.ending-welcome { font-size: 80px; -unity-font-style: bold; color: rgb(255, 196, 120); letter-spacing: 8px; white-space: normal; width: 90%; opacity: 0; -unity-text-align: middle-center; }

@@ -153,6 +153,7 @@ MonoBehaviour:
   document: {fileID: 87433092}
   flow: {fileID: 721415839}
   score: {fileID: 721415838}
+  touchHint: TAP  RETRY
 --- !u!1931382934 &87433091
 PanelRenderer:
   m_ObjectHideFlags: 0
@@ -848,6 +849,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model
       objectReference: {fileID: 0}
+    - target: {fileID: -5565567650465608836, guid: 2a459a651a289aa45b390b28b7d6c2a3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 38ec2692aa6c50a419f5bf8c560fe465, type: 2}
     - target: {fileID: 6034691395237457141, guid: 2a459a651a289aa45b390b28b7d6c2a3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.4
@@ -1101,6 +1106,7 @@ MonoBehaviour:
   mapName: Menu
   confirmActionName: Confirm
   backActionName: Back
+  tapConfirms: 1
 --- !u!114 &721415841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1865,6 +1871,7 @@ GameObject:
   - component: {fileID: 1767818720}
   - component: {fileID: 1767818722}
   - component: {fileID: 1767818723}
+  - component: {fileID: 1767818724}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1945,6 +1952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Player.PlayerInputSource
   actions: {fileID: -944628639613478452, guid: 4c9b38611709c664ba09ac5ca2ca04de, type: 3}
+  touch: {fileID: 1767818724}
   mapName: Gameplay
   moveActionName: Move
   fireActionName: Fire
@@ -2045,6 +2053,24 @@ MonoBehaviour:
   localOffset: {x: 0, y: 0.7, z: -0.2}
   scale: 1.2
   flash: {fileID: 0}
+--- !u!114 &1767818724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767818712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7745c8687adeb49b246f06c5958800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Homecoming.Player.TouchControls
+  movement: {fileID: 1767818715}
+  cam: {fileID: 330585545}
+  hud: {fileID: 2011367945}
+  bombButtonName: bomb-button
+  dragScale: 1.2
+  deadZone: 0.03
 --- !u!1 &1783788500
 GameObject:
   m_ObjectHideFlags: 0

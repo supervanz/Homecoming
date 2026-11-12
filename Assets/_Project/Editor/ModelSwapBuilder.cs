@@ -122,7 +122,10 @@ namespace Homecoming.EditorTools
                 m = new Material(Shader.Find("Universal Render Pipeline/Lit"));
                 AssetDatabase.CreateAsset(m, path);
             }
-            Texture2D baseTex = AssetDatabase.LoadAllAssetsAtPath(glbPath).OfType<Texture2D>().FirstOrDefault(t => t.name.StartsWith("Color"));
+            // TextureShrinkBuilder가 만든 1024 압축본이 있으면 그것을 쓴다 (WebGL 용량, M11)
+            string glbName = System.IO.Path.GetFileNameWithoutExtension(glbPath);
+            Texture2D baseTex = AssetDatabase.LoadAssetAtPath<Texture2D>($"Assets/_Project/Art/Textures/Models/T_{glbName}_Color.png")
+                ?? AssetDatabase.LoadAllAssetsAtPath(glbPath).OfType<Texture2D>().FirstOrDefault(t => t.name.StartsWith("Color"));
             m.SetTexture("_BaseMap", baseTex);
             m.SetColor("_BaseColor", Color.white);
             m.SetFloat("_Metallic", 0.55f);

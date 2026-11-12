@@ -22,7 +22,11 @@ namespace Homecoming.UI
         {
             Time.timeScale = 1f;
             _hint = document.rootVisualElement.Q<Label>("hint");
+            if (_hint != null && Homecoming.Player.TouchControls.IsTouchDevice) _hint.text = touchHint;
         }
+
+        [Tooltip("터치 기기에서 보일 안내 문구")]
+        [SerializeField] private string touchHint = "TAP TO START";
 
         private void Update()
         {

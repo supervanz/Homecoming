@@ -112,3 +112,8 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# WebGL Publisher (Unity Play) upload artifacts
+/connectwebgl.zip
+/webgl_sharing
+/Data/

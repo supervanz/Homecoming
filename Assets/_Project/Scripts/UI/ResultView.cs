@@ -10,6 +10,8 @@ namespace Homecoming.UI
         [SerializeField] private UIDocument document;
         [SerializeField] private GameFlow flow;
         [SerializeField] private ScoreKeeper score;
+        [Tooltip("터치 기기에서 보일 안내 문구 (탭 = 다시 하기)")]
+        [SerializeField] private string touchHint = "TAP  RETRY";
 
         private VisualElement _overlay;
         private Label _title, _score, _time;
@@ -22,6 +24,8 @@ namespace Homecoming.UI
             _score = root.Q<Label>("result-score");
             _time = root.Q<Label>("result-time");
             _overlay.EnableInClassList("overlay--visible", false);
+            var hint = root.Q<Label>("result-hint");
+            if (hint != null && Homecoming.Player.TouchControls.IsTouchDevice) hint.text = touchHint;
             flow.ResultReady += Show;
         }
 

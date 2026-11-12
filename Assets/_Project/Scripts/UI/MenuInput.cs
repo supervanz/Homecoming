@@ -15,7 +15,11 @@ namespace Homecoming.UI
         private InputAction _confirm;
         private InputAction _back;
 
-        public bool ConfirmPressed => _confirm.WasPressedThisFrame();
+        [Tooltip("화면 탭(마우스 클릭)도 Confirm으로 받는다 (모바일)")]
+        [SerializeField] private bool tapConfirms = true;
+
+        public bool ConfirmPressed => _confirm.WasPressedThisFrame()
+            || (tapConfirms && Pointer.current != null && Pointer.current.press.wasPressedThisFrame);
         public bool BackPressed => _back.WasPressedThisFrame();
 
         private void Awake()

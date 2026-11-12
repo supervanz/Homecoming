@@ -21,5 +21,6 @@
             <ui:VisualElement name="bombs" class="pips" />
         </ui:VisualElement>
         <ui:Label name="weapon" class="weapon" text="LV 1" />
+        <ui:Button name="bomb-button" class="bomb-button" text="BOMB" />
     </ui:VisualElement>
 </ui:UXML>
